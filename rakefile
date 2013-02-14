@@ -1,0 +1,29 @@
+require 'bundler/setup'
+require './config/environment'
+require './lib/models'
+require 'dm-migrations'
+
+desc "Recreate database from DataMapper model"
+task :migrate do
+  DataMapper.finalize.auto_migrate!   
+  puts "[rake]: Database has been rebuilt."
+end
+
+desc "Upgrade database from DataMapper model"
+task :upgrade do
+  DataMapper.finalize.auto_upgrade!   
+  puts "[rake]: Database has been upgraded."
+end
+
+
+desc "Run system wide test suite."
+begin
+  require 'rspec/core/rake_task'
+  RSpec::Core::RakeTask.new(:spec) do |spec|
+    spec.pattern = 'spec/**/*_spec.rb'
+    spec.rspec_opts = ['--color --format documentation']
+  end
+  task :default => :spec
+  
+  rescue LoadError
+end

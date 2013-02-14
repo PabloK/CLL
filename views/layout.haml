@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    =haml :head
+  %body
+    #cover
+      .message
+        =@message
+    #header.row
+    #content.row
+      =yield
+    #footer.row
