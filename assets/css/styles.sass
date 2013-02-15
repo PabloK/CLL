@@ -1,6 +1,20 @@
 @import "color"
 
 body 
+  font-family: Arial, Sans-Serif
+  color: $gray-3
+
+p
+  padding-left: 30px
+  padding-right: 30px
+  padding-bottom: 10px
+  font-size: 0.90em
+
+h1,h2,h3,h4
+  padding: 30px
+  padding-bottom: 10px
+  font-family: Calibri, Sans-Serif
+  color: $combitech
 
 #cover
   background-color: rgba(30,30,30,0.5)
@@ -11,3 +25,29 @@ body
   position: fixed
   z-index: 9999
   display: none
+
+#bar
+  margin-top: 1em
+  height: 1em
+  background: $gray-a 
+  background: -moz-linear-gradient(top, $gray-a 0%, $gray-6 100%) 
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$gray-a), color-stop(100%,$gray-6)) 
+  background: -webkit-linear-gradient(top, $gray-a 0%,$gray-6 100%) 
+  background: -o-linear-gradient(top, $gray-a 0%,$gray-6 100%) 
+  background: -ms-linear-gradient(top, $gray-a 0%,$gray-6 100%) 
+  background: linear-gradient(to bottom, $gray-a 0%,$gray-6 100%) 
+  border-bottom: 1px solid $gray-5
+  border-top: 1px solid $gray-9
+
+#header
+  height: 13em
+  background: $gray-a 
+  background: -moz-linear-gradient(top, $gray-a 0%, $white 100%) 
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$gray-a), color-stop(100%,$white)) 
+  background: -webkit-linear-gradient(top, $gray-a 0%,$white 100%) 
+  background: -o-linear-gradient(top, $gray-a 0%,$white 100%) 
+  background: -ms-linear-gradient(top, $gray-a 0%,$white 100%) 
+  background: linear-gradient(to bottom, $gray-a 0%,$white 100%) 
+
+#logo
+  padding: 3em
