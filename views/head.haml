@@ -1,6 +1,7 @@
 %script{:type => "text/javascript", :src  => "https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"}
 %script{ :src => "http://d3js.org/d3.v3.min.js", :type => "text/javascript"}
 %script{:type => "text/javascript", :src  => "/js/message.js"}
+%script{:type => "text/javascript", :src  => "/external/js/jquery-ui-1.10.0.custom.min.js"}
 %link{:rel => 'stylesheet', :type => 'text/css', :href => '/css/grid.css'}
 %link{:rel => 'stylesheet', :type => 'text/css', :href => '/css/styles.css'}
 -if @message
@@ -8,3 +9,55 @@
     $(document).ready(function(){
       $('#cover').show();
     });
+
+:javascript
+  var fired = false
+  function useTerm(term){
+    $.ajax({
+      url: "/useTerm",
+      type: "POST",
+      dataType: "json",
+      data: {
+        term: term
+      }
+    }).done( function(data){fired = false;});
+  }
+
+  $(document).ready(function(){
+    var usedTerms = [];
+    var auto = $("#term").autocomplete({
+      source: function( request, response ) {
+        $.ajax({
+          url: "/findTerm",
+          type: "POST",
+          dataType: "json",
+          data: {
+            term: request.term
+          }
+        }).done( function(data){ response(data);});
+      },
+      messages: {
+        noResults: '',
+        results: function(){}
+      }, 
+    });
+
+    auto.on("autocompleteselect", function(event, ui){ 
+      if (!fired && $.inArray(ui.item.value, usedTerms) == -1) {
+        usedTerms.push(ui.item.value)
+        fired = true;
+        $('#selected_terms').append('<div class="selected_term">'+ui.item.value+'</div>')
+        useTerm(ui.item.value);
+      }
+      auto[0].value = '';
+      $(".ui-autocomplete").hide();
+    });
+
+    auto.keydown(function(event){
+      var keyCode = ('which' in event) ? event.which : event.keyCode;
+      if (keyCode == 13) { 
+        var ui = { item : { value : $("#term")[0].value.toLowerCase()} }
+        auto.trigger("autocompleteselect", ui); 
+      }
+    });
+  });

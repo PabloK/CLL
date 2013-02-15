@@ -6,6 +6,7 @@ require 'sinatra/flash'
 require 'data_mapper'
 require 'pony'
 require 'uglifier'
+require 'json'
 
 class  Sinatra::Base
   

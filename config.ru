@@ -21,6 +21,11 @@ map '/' do
     :urls => ["/robots.txt"],
     :cache_control => "public,max-age=#{365 * 24 * 3600}"
   }
+  use Rack::Static, {
+    :root => "public",
+    :urls => ["/external/js"],
+    :cache_control => "public,max-age=#{365 * 24 * 3600}"
+  }
 
   use Rack::Session::Cookie, :secret => ENV['SESSION_SECRETE'], :expire_after => 30 * 3600
 
