@@ -10,6 +10,8 @@ class Term
   property :ostracisity, Float, :required => true, :default => 0.0
   property :fondness, Float, :required => true, :default => 1.0
 
+  validates_length_of :name, :min => 3, :max => 32
+
   # Embrace the term
   def embrace!
     if @number_of_inclusions <= 300 
@@ -41,12 +43,15 @@ class Term
 
   # Embrace or create the term if it is used
   def self.use_term(term)
+      return false if term.length < 3 or term.length > 32 
       unless Term.exists(term)
-        Term.create(:name => term)
+         Term.create(:name => term)
       else
         current_term = Term.first(:name => term)
         current_term.embrace!
       end
+
+      return term
   end
 
   def self.exists(term)

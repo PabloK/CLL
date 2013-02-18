@@ -1,3 +1,14 @@
 .col4
-  %input#term{:type => "text"} 
-  #selected_terms
+  %form{ :onsubmit => "$('#term').trigger('autocompleteselect'); return false;"}
+    %div
+      %label{:for => "area"} Välj kompetensområde:
+      %select{:name => "area"}
+        %option Testning
+        %option Agilutveckling
+        %option Projektledning
+        %option Konstruktion
+        %option Beräkning
+    %div
+      %label{:for => "term"} Lägg till kompetens:
+      %input#term{:type => "text", :name => "term"}    
+      #selected_terms

@@ -11,7 +11,16 @@
     });
 
 :javascript
-  var fired = false
+  var usedTerms = [];
+  function addTerm(term){
+    $('#selected_terms').append('<div class="selected_term">'+term+'</div>')
+  }
+
+  function resetField(){
+      $("#term").value = '';
+      $(".ui-autocomplete").hide();
+  }
+
   function useTerm(term){
     $.ajax({
       url: "/useTerm",
@@ -20,11 +29,19 @@
       data: {
         term: term
       }
-    }).done( function(data){fired = false;});
+    }).done(function(data){
+        if (data !== false) {
+          addTerm(data);
+          usedTerms.push(data)
+        }
+    }).complete(function(){
+        resetField();
+    }).error(function(){
+      console.log("error");
+    });
   }
 
   $(document).ready(function(){
-    var usedTerms = [];
     var auto = $("#term").autocomplete({
       source: function( request, response ) {
         $.ajax({
@@ -42,22 +59,15 @@
       }, 
     });
 
-    auto.on("autocompleteselect", function(event, ui){ 
-      if (!fired && $.inArray(ui.item.value, usedTerms) == -1) {
-        usedTerms.push(ui.item.value)
-        fired = true;
-        $('#selected_terms').append('<div class="selected_term">'+ui.item.value+'</div>')
-        useTerm(ui.item.value);
+    auto.on("autocompleteselect", function(event, ui) {
+      if (typeof(ui) !== 'undefined') {
+        term = ui.item.value.toLowerCase();
+      } else {
+        term = $("#term")[0].value.toLowerCase();
       }
-      auto[0].value = '';
-      $(".ui-autocomplete").hide();
-    });
 
-    auto.keydown(function(event){
-      var keyCode = ('which' in event) ? event.which : event.keyCode;
-      if (keyCode == 13) { 
-        var ui = { item : { value : $("#term")[0].value.toLowerCase()} }
-        auto.trigger("autocompleteselect", ui); 
+      if ($.inArray(term, usedTerms) == -1) {
+        useTerm(term);
       }
     });
   });

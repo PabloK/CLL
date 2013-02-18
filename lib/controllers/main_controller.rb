@@ -4,13 +4,16 @@ class MainController < Sinatra::Base
     end
 
     post '/useTerm' do
-       Term.use_term(params[:term])
+      status = Term.use_term(params[:term])
+      puts "status #{status}"
+      content_type 'application/json'
+      return status.to_json 
     end
 
     post '/findTerm' do
       found_terms = Term.find_terms(params[:term])
-      content_type 'application/json'
       terms = found_terms.map{|term| term.name}
+      content_type 'application/json'
       terms.to_json
     end
 end
