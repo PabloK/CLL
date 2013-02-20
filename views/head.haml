@@ -1,5 +1,5 @@
-%script{:type => "text/javascript", :src  => "https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"}
-%script{ :src => "http://d3js.org/d3.v3.min.js", :type => "text/javascript"}
+%script{:type => "text/javascript", :src  => "/external/js/jquery-1.9.1.min.js"}
+%script{ :src => "/external/js/d3.v3.min.js", :type => "text/javascript"}
 %script{:type => "text/javascript", :src  => "/js/message.js"}
 %script{:type => "text/javascript", :src  => "/external/js/jquery-ui-1.10.0.custom.min.js"}
 %link{:rel => 'stylesheet', :type => 'text/css', :href => '/css/grid.css'}
@@ -17,16 +17,23 @@
   }
 
   function resetField(){
-      $("#term").value = '';
+      $("#term").val('');
       $(".ui-autocomplete").hide();
   }
 
+  function emptyTerms() {
+    $("#selected_terms").html('');
+  }
+
   function useTerm(term){
+    area = $("#area").val() ;
+    console.log(area);
     $.ajax({
       url: "/useTerm",
       type: "POST",
       dataType: "json",
       data: {
+        area: area,
         term: term
       }
     }).done(function(data){
@@ -42,6 +49,9 @@
   }
 
   $(document).ready(function(){
+    $("#area").change(function(){
+      emptyTerms();
+    })
     var auto = $("#term").autocomplete({
       source: function( request, response ) {
         $.ajax({
@@ -49,6 +59,7 @@
           type: "POST",
           dataType: "json",
           data: {
+            area: $("#area").val(),
             term: request.term
           }
         }).done( function(data){ response(data);});

@@ -1,0 +1,6 @@
+.col4
+  .blue_row
+    %h2 Områden
+  -@areas.each do |area|
+    %ul.colored_list
+      %li{:class => cycle('odd','even')}=area.name

@@ -1,3 +1,4 @@
+# encoding: utf-8
 require './config/environment'
 require './config/helpers'
 require './lib/controllers'
@@ -41,6 +42,10 @@ map '/' do
 
   map '/' do
     run MainController 
+  end
+
+  map '/area' do
+    run AreaController
   end
 
 end 

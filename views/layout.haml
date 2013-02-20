@@ -4,12 +4,14 @@
     =haml :head
   %body
     #cover
-      .message
+      #message_box
         =@message
     #bar.row
     #header.row
-      .col12
-        %img#logo{:src => "/img/combitech_logo.png"}
+      .header_img
+        .col12
+          %img#logo{:src => "/img/combitech_logo.png"}
+          %img{:src => "/img/dual_coaching.png"}
     #content.row
       =yield
     #footer.row

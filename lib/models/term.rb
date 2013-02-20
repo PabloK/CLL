@@ -2,15 +2,18 @@ class Term
   include DataMapper::Resource
 
   property :name, String, :required => true, :key => true
+
   # A measurement of how much this term is embraced
   property :number_of_inclusions, Integer, :required => true, :default => 1
   property :embracement, Float, :required => true, :default => 1.0
+
   # A measurement of how much this term is rejected
   property :number_of_complaints, Integer, :required => true, :default => 0
   property :ostracisity, Float, :required => true, :default => 0.0
   property :fondness, Float, :required => true, :default => 1.0
-
   validates_length_of :name, :min => 3, :max => 32
+  
+  has n, :areas, :through => Resource
 
   # Embrace the term
   def embrace!
@@ -36,16 +39,14 @@ class Term
     end
   end
 
-  # Calculate the fondness of a term
-  def determine_fondness(embracement, ostracisity)
-     return embracement - ostracisity
-  end
-
   # Embrace or create the term if it is used
-  def self.use_term(term)
+  def self.use_term(area ,term)
       return false if term.length < 3 or term.length > 32 
       unless Term.exists(term)
-         Term.create(:name => term)
+         new_term = Term.new
+         new_term.name = term
+         new_term.areas << Area.get(area)
+         new_term.save 
       else
         current_term = Term.first(:name => term)
         current_term.embrace!
@@ -64,6 +65,12 @@ class Term
 
   def name=(name)
     super(name.downcase)
+  end
+
+  # Calculate the fondness of a term
+  private
+  def determine_fondness(embracement, ostracisity)
+     return embracement - ostracisity
   end
 
 end

@@ -2,12 +2,9 @@
   %form{ :onsubmit => "$('#term').trigger('autocompleteselect'); return false;"}
     %div
       %label{:for => "area"} Välj kompetensområde:
-      %select{:name => "area"}
-        %option Testning
-        %option Agilutveckling
-        %option Projektledning
-        %option Konstruktion
-        %option Beräkning
+      %select#area{:name => "area"}
+        -@areas.each do |area|
+          %option{:value => area.name}=area.name
     %div
       %label{:for => "term"} Lägg till kompetens:
       %input#term{:type => "text", :name => "term"}    
