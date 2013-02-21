@@ -1,6 +1,7 @@
-.col4
+.col5
   .blue_row
     %h2 Områden
-  -@areas.each do |area|
-    %ul.colored_list
+  %ul.colored_list
+    -@areas.each do |area|
       %li{:class => cycle('odd','even')}=area.name
+  %a.add{:href => "/area"} Lägg till område

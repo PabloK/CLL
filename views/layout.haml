@@ -8,10 +8,20 @@
         =@message
     #bar.row
     #header.row
-      .header_img
-        .col12
+      .col12
+        .header_img
           %img#logo{:src => "/img/combitech_logo.png"}
-          %img{:src => "/img/dual_coaching.png"}
+    #menu.row
+      %ul.col12
+        %li{} 
+          %a{:href => "/"} Start
+        %li{} 
+          %a{:href => ""} Utvecklingssamtal
+        %li{}
+          %a{:href => ""}Administration
+          %ul.collapsible
+            %li
+              %a{:href => "/area/list"} Områden
     #content.row
       =yield
     #footer.row

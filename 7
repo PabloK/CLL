@@ -11,7 +11,10 @@ p
   font-size: 0.90em
 
 h1,h2,h3,h4
+  padding: 30px
+  padding-bottom: 10px
   font-family: Calibri, Sans-Serif
+  color: $combitech
 
 #cover
   background-color: rgba(30,30,30,0.5)
@@ -37,52 +40,34 @@ h1,h2,h3,h4
   border-top: 1px solid $gray-9
 
 #header
-  position: relative
 
   .header_img
-    background-image: url("/img/dual_coaching.png")
     border-left: 1px solid $gray-5
     border-right: 1px solid $gray-5
     border-bottom: 1px solid $gray-5
     display: block
-    height: 25em
+    height: 30em
     overflow: hidden
     margin-bottom: 1em
+  
+  .header_link
+    color: $white
+    background: -moz-linear-gradient(left,  rgba(0,0,0,1) 0%, rgba(0,0,0,1) 5%, rgba(0,0,0,0.35) 25%, rgba(0,0,0,0.35) 75%, rgba(0,0,0,1) 95%, rgba(0,0,0,1) 100%)
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,1)), color-stop(5%,rgba(0,0,0,1)), color-stop(25%,rgba(0,0,0,0.35)), color-stop(75%,rgba(0,0,0,0.35)), color-stop(95%,rgba(0,0,0,1)), color-stop(100%,rgba(0,0,0,1)))
+    background: -webkit-linear-gradient(left,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 5%,rgba(0,0,0,0.35) 25%,rgba(0,0,0,0.35) 75%,rgba(0,0,0,1) 95%,rgba(0,0,0,1) 100%)
+    background: -o-linear-gradient(left,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 5%,rgba(0,0,0,0.35) 25%,rgba(0,0,0,0.35) 75%,rgba(0,0,0,1) 95%,rgba(0,0,0,1) 100%)
+    background: -ms-linear-gradient(left,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 5%,rgba(0,0,0,0.35) 25%,rgba(0,0,0,0.35) 75%,rgba(0,0,0,1) 95%,rgba(0,0,0,1) 100%)
+    background: linear-gradient(to right,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 5%,rgba(0,0,0,0.35) 25%,rgba(0,0,0,0.35) 75%,rgba(0,0,0,1) 95%,rgba(0,0,0,1) 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000',GradientType=1 )
 
-#menu 
-  height: 2em
-  overflow: visible
-  li
-    position: relative
-    display: inline-block
-    background: $gray-5
-    padding: 0.5em
-    min-width: 10em
 
-    a
-      text-decoration: none
-      padding: 0.5em
-      font-weight: bold
-      color: $white
 
-    .collapsible 
-      overflow: visible
-      position: absolute
-      z-index: 9999
-      display: none
-      top: 2.25em
-      left: 0
-      
-  li:hover
-    background: $black
 
-    .collapsible
-      display: inline-block
-    
 #logo
-  display: inline-block
   padding: 2.5em
   width: 300px
+  position: absolute
+  z-index: 99
 
 .ui-autocomplete
   list-style: none
@@ -142,6 +127,19 @@ label
   -webkit-box-shadow: 5px 5px $gray-3
   box-shadow: 5px 5px $gray-3
   
+  .blue_row
+    -moz-box-shadow: 0px 5px $gray-3
+    -webkit-box-shadow: 0px 5px $gray-3
+    box-shadow: 0px 5px $gray-3
+    
+    h2
+      -moz-box-shadow: none
+      -webkit-box-shadow: none
+      box-shadow: none
+      width: 100%
+      
+    
+
   button
     display: block
     margin: 0 auto
@@ -150,20 +148,20 @@ label
   p
     padding: 1em
 
-
-h2 
-  padding: 5px
-  background-color: $combitech
-  color: $white
-  margin: 5px
-  margin-left: 0px
-  width: auto
-  display: block
-  font-weight: bold
-  -moz-box-shadow: 3px 3px $gray-9
-  -webkit-box-shadow: 3px 3px $gray-9
-  box-shadow: 3px 3px $gray-9
-  margin-top: 1em
+.blue_row
+  h2 
+    padding: 5px
+    background-color: $combitech
+    color: $white
+    margin: 5px
+    margin-left: 0px
+    width: auto
+    display: block
+    font-weight: bold
+    -moz-box-shadow: 3px 3px $gray-9
+    -webkit-box-shadow: 3px 3px $gray-9
+    box-shadow: 3px 3px $gray-9
+    margin-top: 1em
 
 .colored_list li.odd
   padding: 0.25em
@@ -172,16 +170,4 @@ h2
 .colored_list li.even
   padding: 0.25em
   list-style : none
-  background-color: $gray-e
-
-.add
-  display: inline-block
-  text-decoration: none
-  background-color: $gray-5
-  padding: 0.5em
-  color: $white
-  margin-top: 1em
-  margin-bottom: 1em
-
-.add:hover
-  background: $black
+  background-color: $gray-c
