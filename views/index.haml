@@ -1,4 +1,4 @@
-.col4
+.span4
   %form{ :onsubmit => "$('#term').trigger('autocompleteselect'); return false;"}
     %div
       %label{:for => "area"} Välj kompetensområde:
@@ -6,6 +6,6 @@
         -@areas.each do |area|
           %option{:value => area.name}=area.name
     %div
-      %label{:for => "term"} Lägg till kompetens:
+      %label{:for => "term"} Lägg till förmåga:
       %input#term{:type => "text", :name => "term"}    
       #selected_terms

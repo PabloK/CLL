@@ -1,7 +1,7 @@
 .col5
   .blue_row
-    %h2 Områden
+    %h2 Kompetensområden
   %ul.colored_list
     -@areas.each do |area|
       %li{:class => cycle('odd','even')}=area.name
-  %a.add{:href => "/area"} Lägg till område
+  %button.btn{:type => "link", :onClick => "window.location.href='/area'"} Lägg till kompetensområde

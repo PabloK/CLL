@@ -16,19 +16,19 @@ class AreaController < Sinatra::Base
       new_area.name = @area
 
       if new_area.save
-        popup("Området har sparats.")
+        modal({:heading => "Kompetensområdet har sparats.", :body => ''})
         return haml :area_add
       end
 
       # TODO handle validation errors
-      popup("Kunde inte spara området.")
+      modal({:heading => "Kunde inte spara kompetensområdet.", :body => ''})
       new_area.errors.each do |e|
         puts e
       end
       return haml :area_add
     end
 
-    popup("Området finns redan.")
+    modal({:heading => "Kompetensområdet finns redan sedan tidigare.", :body => ''})
     haml :area_add
   end
 

@@ -1,6 +1,7 @@
 .col5
   .blue_row
-    %h2 Lägg till område
+    %label Lägg till kompetensområde:
   %form{:action => "/area/", :method => "POST"}
-    %input#area{:name => "name", :value => "#{@area}"}
-    %button add
+    .input-append
+      %input#area{:type => "text",:name => "name", :value => "#{@area}"}
+      %button.btn{:type => "submit"} Lägg till

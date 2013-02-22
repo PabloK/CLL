@@ -3,25 +3,14 @@
   %head
     =haml :head
   %body
-    #cover
-      #message_box
-        =@message
-    #bar.row
-    #header.row
-      .col12
-        .header_img
-          %img#logo{:src => "/img/combitech_logo.png"}
-    #menu.row
-      %ul.col12
-        %li{} 
-          %a{:href => "/"} Start
-        %li{} 
-          %a{:href => ""} Utvecklingssamtal
-        %li{}
-          %a{:href => ""}Administration
-          %ul.collapsible
-            %li
-              %a{:href => "/area/list"} Områden
-    #content.row
-      =yield
-    #footer.row
+    .container
+      .row-fluid#main-content
+        #messageModal.modal.hide.fade{"aria-hidden" => "true", 
+                               "aria-labelledby" => "myModalLabel", 
+                               :role => "dialog", :tabindex => "-1"}=@message
+        #header.row-fluid
+        #content.row-fluid
+          =yield
+        #footer.row-fluid
+        #scripts
+          =haml :scripts

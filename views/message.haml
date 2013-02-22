@@ -1,4 +1,7 @@
-.blue_row
-  %h2 Meddelande
-%p=@message
-%button.button{:onclick => "$('#cover').hide();"} Stäng
+.modal-header
+  %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+  %h3#messageModalLabel=@message[:heading]
+.modal-body
+  %p=@message[:body]
+.modal-footer
+  %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Stäng

@@ -24,7 +24,7 @@ map '/' do
   }
   use Rack::Static, {
     :root => "public",
-    :urls => ["/external/js"],
+    :urls => ["/external/js","/external/css", "/external/img"],
     :cache_control => "public,max-age=#{365 * 24 * 3600}"
   }
 

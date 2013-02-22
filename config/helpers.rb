@@ -1,6 +1,6 @@
 # Sinatra helpers
 class  Sinatra::Base
-  def popup(message)
+  def modal(message)
     @message = message
     @message = flash[:message] = haml :message, :layout => false
   end
