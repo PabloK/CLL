@@ -1,8 +1,26 @@
 @import "color"
 
+@mixin shadow ($color)
+  -moz-box-shadow: 3px 3px 4px $color
+  -webkit-box-shadow: 3px 3px 4px $color
+  box-shadow: 3px 3px 4px $color 
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')"
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000') 
+
 body 
   font-family: Arial, Sans-Serif
   background-image: url('/img/webtreats-paper-pattern-1-grey.jpg')
+
+li
+  list-style: none
+  background-color: $white
+  padding: 10px
+
+ul
+  margin: 1em 0
+
+.odd
+  background-color: $gray-e
 
 #header
 
@@ -12,3 +30,20 @@ body
   background-color: $white
   min-height: 20em
   border-radius: 0.5em
+
+.ui-menu
+  max-width: 20em
+  border: 1px solid $gray-c
+  border-radius: 4px
+
+.ui-state-focus
+  text-decoration: underline
+
+.selected_term
+  background-color: $gray-e
+  @include shadow($gray-c)
+  padding: 0.5em
+  border-radius: 5px
+  margin-bottom: 0.5em
+  color: $gray-3
+  font-weight: bold

@@ -32,7 +32,6 @@ $(document).ready ->
 
 usedTerms = []
 $(document).ready ->
-  $("#area").change ->
     emptyTerms()
 
   auto = $("#term").autocomplete(
