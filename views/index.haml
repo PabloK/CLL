@@ -1,11 +1,11 @@
 .span4
-  %form{ :onsubmit => "$('#term').trigger('autocompleteselect'); return false;"}
+  %form{ :onsubmit => "$('#ability').trigger('autocompleteselect'); return false;"}
     %div
       %label{:for => "area"} Välj kompetensområde:
       %select#area{:name => "area"}
         -@areas.each do |area|
           %option{:value => area.name}=area.name
     %div
-      %label{:for => "term"} Lägg till förmåga:
-      %input#term{:type => "text", :name => "term"}    
-      #selected_terms
+      %label{:for => "ability"} Lägg till förmåga:
+      %input#ability{:type => "text", :name => "ability"}    
+      #selected_abilitys

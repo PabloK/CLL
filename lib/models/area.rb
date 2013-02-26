@@ -1,14 +1,13 @@
 class Area
   include DataMapper::Resource
   property :name, String, :required => true, :key => true
-  property :empty, String, :default => ''
-  has n , :terms, :through => Resource, :order => [:fondness.desc]
+  has n , :abilitys, :through => Resource, :order => [:fondness.desc]
 
-  def self.find_terms(area_name, term)
+  def self.find_abilitys(area_name, ability)
     area = Area.first(:name => area_name)
-    if area
-      area.terms.all(:fields => [:name], 
-                     :name.like => '%'+term.downcase+'%', 
+    if area and ability
+      area.abilitys.all(:fields => [:name], 
+                     :name.like => '%'+ability.downcase+'%', 
                      :order => [:fondness.desc], :limit => 10) 
     end
   end

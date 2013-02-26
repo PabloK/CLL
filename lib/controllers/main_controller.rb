@@ -5,19 +5,20 @@ class MainController < Sinatra::Base
       haml :index
     end
 
-    post '/useTerm' do
-      status = Term.use_term(params[:area],params[:term])
+    post '/useAbility' do
+      status = Ability.use_ability(params[:area],params[:ability])
       puts "status #{status}"
       content_type 'application/json'
       return status.to_json 
     end
 
-    post '/findTerm' do
-      found_terms = Area.find_terms(params[:area],params[:term])
-      if found_terms
-        terms = found_terms.map{|term| term.name}
+    post '/findAbility' do
+      found_abilitys = Area.find_abilitys(params[:area],params[:ability])
+      
+      if found_abilitys
+        abilitys = found_abilitys.map{|ability| ability.name}
         content_type 'application/json'
-        terms.to_json
+        abilitys.to_json
       end
     end
 end
