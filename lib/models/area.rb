@@ -8,6 +8,7 @@ class Area
     if area and ability
       area.abilitys.all(:fields => [:name], 
                      :name.like => '%'+ability.downcase+'%', 
+                     :number_of_inclusions.gt => $CONFIG[:min_num_of_inclusions_for_display],
                      :order => [:fondness.desc], :limit => 10) 
     end
   end

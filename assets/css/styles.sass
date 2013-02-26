@@ -20,9 +20,7 @@ ul
   margin: 1em 0
 
 .odd
-  background-color: $gray-e
-
-#header
+  background-color: $grey-e
 
 #main-content
   margin-top: 2em
@@ -33,17 +31,86 @@ ul
 
 .ui-menu
   max-width: 20em
-  border: 1px solid $gray-c
+  border: 1px solid $grey-c
   border-radius: 4px
 
 .ui-state-focus
   text-decoration: underline
 
 .selected_ability
-  background-color: $gray-e
-  @include shadow($gray-c)
+  background-color: $combitech
+  color: $white
+  @include shadow($grey-c)
   padding: 0.5em
   border-radius: 5px
   margin-bottom: 0.5em
-  color: $gray-3
   font-weight: bold
+
+.diagram-surface
+  height: 400px
+  margin-bottom: 20px
+  overflow: hidden
+  background-color: #f7f7f7
+  border-radius: 4px
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
+  -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
+  padding: 3em
+
+.diagram-baseline
+  overflow: hidden
+  border-left: 2px solid $grey-c
+  border-bottom: 2px solid $grey-c
+  height: 90%
+
+.diagram
+  border-top-left-radius: 4px
+  border-top-right-radius: 4px
+  display: inline-block
+  height: 0%
+  width: 25px
+  margin: 0 1em
+  -webkit-box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.1)
+  box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.1)
+
+.combination-diagram
+  display: inline-block
+  height: 100%
+  width: 25px
+  margin: 0 1em
+  position: relative
+
+  .diagram
+    margin: 0
+    position: absolute
+    bottom: 0 
+    height: 0%
+
+.diagram-legend
+  margin-bottom: 20px
+  overflow: hidden
+  background-color: #f7f7f7
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
+  -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
+  padding: 3em
+
+.cornflower
+  background-color: $cornflower-blue
+
+.dodger
+  background-color: $dodger-blue
+
+.grey-5
+  background-color: $grey-5
+
+.vslider
+  height: 7px
+  border-bottom: 2px solid $white
+  cursor: move
+  border-top-left-radius: 3px
+  border-top-right-radius: 3px
+  background: $black
+
+.vslider:hover
+  background: $white

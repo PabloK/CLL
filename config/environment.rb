@@ -18,13 +18,7 @@ class  Sinatra::Base
   end
 
   # Global-variable configuration
-  $config = {}
-  global_configuration = File.new(File.dirname(__FILE__) + "/globals.conf","r")
-  while line = global_configuration.gets 
-    line = line.delete("\n")
-    name,value = line.split(":")
-    $config[name.to_sym] = value
-  end
+  require './config/globals'
 
   # View dir configuration
   set :views, File.dirname(__FILE__) + "/../views"
