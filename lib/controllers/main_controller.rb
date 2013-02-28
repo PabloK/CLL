@@ -1,5 +1,10 @@
 # encoding: utf-8
 class MainController < Sinatra::Base
+
+    before do
+      @diagram = true
+    end
+
     get '/' do
       @areas = Area.all
       haml :index
@@ -7,7 +12,6 @@ class MainController < Sinatra::Base
 
     post '/useAbility' do
       status = Ability.use_ability(params[:area],params[:ability])
-      puts "status #{status}"
       content_type 'application/json'
       return status.to_json 
     end

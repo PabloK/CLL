@@ -47,6 +47,10 @@ ul
   font-weight: bold
 
 .diagram-surface
+  -moz-user-select: -moz-none
+  -khtml-user-select: none
+  -webkit-user-select: none
+  user-select: none
   height: 400px
   margin-bottom: 20px
   overflow: hidden
@@ -64,8 +68,6 @@ ul
   height: 90%
 
 .diagram
-  border-top-left-radius: 4px
-  border-top-right-radius: 4px
   display: inline-block
   height: 0%
   width: 25px
@@ -105,12 +107,14 @@ ul
   background-color: $grey-5
 
 .vslider
+  position: relative
+  top: -9px
   height: 7px
   border-bottom: 2px solid $white
   cursor: move
   border-top-left-radius: 3px
   border-top-right-radius: 3px
-  background: $black
+  background: $grey-3
 
 .vslider:hover
   background: $white

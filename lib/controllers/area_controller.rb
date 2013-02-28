@@ -2,6 +2,7 @@
 class AreaController < Sinatra::Base
   before do
     @area = nil
+    @message = flash[:message]
   end
 
   get '/' do
@@ -16,19 +17,19 @@ class AreaController < Sinatra::Base
       new_area.name = @area
 
       if new_area.save
-        modal({:heading => "Kompetensområdet har sparats.", :body => ''})
-        return haml :area_add
+        modal({:heading => "Nytt Kompetensområde", :body => "Kompetensområdet #{@area} har sparats."})
+        redirect '/area/list'
       end
 
       # TODO handle validation errors
-      modal({:heading => "Kunde inte spara kompetensområdet.", :body => ''})
+      modal({:heading => "Ett fel uppstod", :body => "Kunde inte spara kompetensområdet."})
       new_area.errors.each do |e|
         puts e
       end
       return haml :area_add
     end
 
-    modal({:heading => "Kompetensområdet finns redan sedan tidigare.", :body => ''})
+    modal({:heading => "Ett fel uppstod", :body => "Kompetensområdet #{@area} finns redan sedan tidigare."})
     haml :area_add
   end
 

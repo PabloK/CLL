@@ -1,4 +1,3 @@
-# encoding: utf-8
 class AbilityHandler
   # TODO add arguments to control link back paths
   constructor: ->
