@@ -15,6 +15,15 @@ class AbilityHandler
     if ability isnt false
       @usedAbilitys.push ability
       $("#selected_abilitys").append "<div class=\"selected_ability\">" + ability + "</div>"
+      new_diagram = "
+      <div class=\"combination-diagram\">
+        <div class=\"diagram currentAbility cornflower\"></div>
+        <div class=\"diagram targetAbility grey-5\"></div>
+      </div>"
+      $(".diagram-baseline").append(new_diagram)
+      
+      $.fn.vSlider.remove()
+      initiateAbilityKey()
   
   resetField: ->
     $("#ability").val ""

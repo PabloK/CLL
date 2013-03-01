@@ -3,11 +3,11 @@
 -#%script{:type => "text/javascript", :src =>  "/external/js/d3.v3.min.js" }
 %script{:type => "text/javascript", :src  => "/external/js/jquery-ui-1.10.0.custom.min.js"}
 %script{:type => "text/javascript", :src =>  "/external/js/bootstrap.min.js"}
+-if @diagram
+  %script{:type => "text/javascript", :src  => "/js/diagram-initiation.js"}
 %script{:type => "text/javascript", :src  => "/js/message.js"}
 %script{:type => "text/javascript", :src  => "/js/abilityhandler.js"}
 %script{:type => "text/javascript", :src  => "/js/vslider.js"}
--if @diagram
-  %script{:type => "text/javascript", :src  => "/js/diagram-initiation.js"}
 -if @message
   :javascript
     $(document).ready(function(){
