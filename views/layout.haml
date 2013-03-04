@@ -9,8 +9,19 @@
                                "aria-labelledby" => "myModalLabel", 
                                :role => "dialog", :tabindex => "-1"}=@message
         #header.row-fluid
+          .navbar
+            .navbar-inner
+              %ul.nav
+                %li.active
+                  %a{:href => "/"} Min nyckel
+                %li
+                  %a{:href => "/area/list"} Administrera
+                %li
+                  %a{:href => "#"} Inställingar
         #content.row-fluid
           =yield
+
         #footer.row-fluid
+
         #scripts
           =haml :scripts

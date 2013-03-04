@@ -46,7 +46,12 @@ class Ability
          new_ability = Ability.new
          new_ability.name = ability
          new_ability.areas << Area.get(area)
-         new_ability.save 
+         if new_ability
+           new_ability.save 
+         else
+          nil
+          #TODO error report
+         end
       else
         current_ability = Ability.first(:name => ability)
         current_ability.embrace!

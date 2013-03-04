@@ -22,7 +22,6 @@ class AbilityHandler
       </div>"
       $(".diagram-baseline").append(new_diagram)
       
-      $.fn.vSlider.remove()
       initiateAbilityKey()
   
   resetField: ->
@@ -58,8 +57,6 @@ $(document).ready ->
 
   auto = $("#ability").autocomplete(
     source: (request, response) ->
-      
-      console.log(request)
       $.ajax(
         url: "/findAbility"
         type: "POST"

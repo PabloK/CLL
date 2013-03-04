@@ -13,8 +13,6 @@ body
 
 li
   list-style: none
-  background-color: $white
-  padding: 10px
 
 ul
   margin: 1em 0
@@ -30,12 +28,27 @@ ul
   border-radius: 0.5em
 
 .ui-menu
-  max-width: 20em
+  display: block
+  padding: 0.5em
+  max-width: 22em
   border: 1px solid $grey-c
   border-radius: 4px
+  background-color: $white
 
 .ui-state-focus
-  text-decoration: underline
+  color: $white
+  background-color: $combitech
+
+.ui-menu-item
+  a
+    border-radius: 4px
+    display: inline-block
+    width: 21em
+    text-decoration: none
+    padding: 0.5em
+  
+  a:hover
+    color: $white
 
 .selected_ability
   background-color: $combitech
