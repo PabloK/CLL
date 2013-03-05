@@ -2,7 +2,8 @@
 class  Sinatra::Base
   def modal(message)
     @message = message
-    @message = flash[:message] = haml :message, :layout => false
+    @message =  haml :message, :layout => false
+    flash[:message] = @message
   end
 
   def login
