@@ -12,12 +12,15 @@
           .navbar
             .navbar-inner
               %ul.nav
-                %li.active
-                  %a{:href => "/"} Min nyckel
-                %li
-                  %a{:href => "/area/list"} Administrera
-                %li
-                  %a{:href => "#"} Inställingar
+                -if @log
+                  %li.active
+                    %a{:href => "/"} Min nyckel
+                  %li
+                    %a{:href => "/area/list"} Administrera
+                  %li
+                    %a{:href => "#"} Inställingar
+                  %li
+                    %a{:href => "/logout"} Logga ut
         #content.row-fluid
           =yield
 

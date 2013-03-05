@@ -2,6 +2,7 @@
 class MainController < Sinatra::Base
 
     before do
+      login
       @diagram = true
     end
 

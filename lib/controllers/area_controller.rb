@@ -1,6 +1,7 @@
 # encoding: utf-8
 class AreaController < Sinatra::Base
   before do
+    login
     @area = nil
     @message = flash[:message]
   end

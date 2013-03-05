@@ -4,8 +4,20 @@ class  Sinatra::Base
     @message = message
     @message = flash[:message] = haml :message, :layout => false
   end
-end
 
+  def login
+    unless session[:lookup] 
+      redirect '/login'
+      @log = false
+    end
+    unless $CONFIG[:lookup].include? session[:lookup]
+      redirect '/login'
+      @log = false
+    end
+
+    @log = true
+  end
+end
 
 # Haml helpers
 class Sinatra::Base

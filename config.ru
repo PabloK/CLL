@@ -48,4 +48,12 @@ map '/' do
     run AreaController
   end
 
+  map '/login' do
+    run LoginController
+  end
+
+  map '/logout' do
+    run LogoutController
+  end
+
 end 
