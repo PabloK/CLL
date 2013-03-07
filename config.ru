@@ -30,6 +30,11 @@ map '/' do
 
   use Rack::Session::Cookie, :secret => ENV['SESSION_SECRETE'], :expire_after => 30 * 3600
 
+  # Configure menu
+  $MENU = []
+  $MENU.push({:text => "Mina nycklar", :url => "/"})
+  $MENU.push({:text => "Administrera", :url => "/area/list"})
+  $MENU.push({:text => "Logga ut", :url => "/logout"})
 
   # Configuration of css and javascript compilation
   map '/css' do

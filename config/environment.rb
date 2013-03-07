@@ -10,6 +10,10 @@ require 'uglifier'
 require 'json'
 
 class  Sinatra::Base
+  # Startup info
+  if ENV['RACK_ENV'] == 'development' 
+    puts "[configuration] RACK_ENV : " + ENV['RACK_ENV']
+  end
   
   # Production settings for haml
   if ENV['RACK_ENV'] == 'production'

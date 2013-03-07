@@ -12,15 +12,9 @@
           .navbar
             .navbar-inner
               %ul.nav
-                -if @log
-                  %li.active
-                    %a{:href => "/"} Min nyckel
-                  %li
-                    %a{:href => "/area/list"} Administrera
-                  %li
-                    %a{:href => "#"} Inställingar
-                  %li
-                    %a{:href => "/logout"} Logga ut
+                -$MENU.each do |item|
+                  %li{:class => item[:url] == request.path ? "active" : ""}
+                    %a{:href => item[:url]}=item[:text]
         #content.row-fluid
           =yield
 

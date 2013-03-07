@@ -1,7 +1,7 @@
 # encoding: utf-8
 class AreaController < Sinatra::Base
   before do
-    login
+    login unless ENV["RACK_ENV"] == "development"
     @area = nil
     @message = flash[:message]
   end

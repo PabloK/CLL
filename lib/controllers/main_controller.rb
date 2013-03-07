@@ -2,7 +2,7 @@
 class MainController < Sinatra::Base
 
     before do
-      login
+      login unless ENV["RACK_ENV"] == "development"
       @diagram = true
     end
 

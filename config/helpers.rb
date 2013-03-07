@@ -9,14 +9,14 @@ class  Sinatra::Base
   def login
     unless session[:lookup] 
       redirect '/login'
-      @log = false
+      @login = false
     end
     unless $CONFIG[:lookup].include? session[:lookup]
       redirect '/login'
-      @log = false
+      @login = false
     end
 
-    @log = true
+    @login = true
   end
 end
 
