@@ -14,12 +14,14 @@ class AbilityHandler
   addAbility: (ability) ->
     if ability isnt false
       @usedAbilitys.push ability
-      $("#selected_abilitys").append "<div class=\"selected_ability\">" + ability + "</div>"
+      # TODO this could perhaps be a view
       new_diagram = "
       <div class=\"combination-diagram\">
         <div class=\"diagram currentAbility cornflower\"></div>
         <div class=\"diagram targetAbility grey-5\"></div>
-      </div>"
+        <label class=\"diagram-label\">" + ability + "</label>
+      </div>
+      "
       $(".diagram-baseline").append(new_diagram)
       
       initiateAbilityKey()

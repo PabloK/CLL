@@ -2,18 +2,18 @@
   %form{ :onsubmit => "$('#ability').trigger('autocompleteselect'); return false;"}
     %div
       %label{:for => "track"} Välj Konsultspår:
-      %select#track{:name => "track"}
+      %select#track{:name => "track", :tabindex => 1}
         %option mekanik
         %option systemutvecking
         %option beräkning
     %div
       %label{:for => "area"} Välj kompetensområde:
-      %select#area{:name => "area"}
+      %select#area{:name => "area", :tabindex => 2}
         -@areas.each do |area|
           %option{:value => area.name}=area.name
     %div
       %label{:for => "ability"} Lägg till förmåga:
-      %input#ability{:type => "text", :name => "ability"}    
+      %input#ability{:type => "text", :name => "ability", :tabindex => 3}    
       #selected_abilitys
 
 .span8

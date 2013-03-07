@@ -64,9 +64,8 @@ ul
   -khtml-user-select: none
   -webkit-user-select: none
   user-select: none
-  height: 400px
+  height: 500px
   margin-bottom: 20px
-  overflow: hidden
   background-color: #f7f7f7
   border-radius: 4px
   -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
@@ -75,18 +74,17 @@ ul
   padding: 3em
 
 .diagram-baseline
-  overflow: hidden
   border-left: 2px solid $grey-c
   border-bottom: 2px solid $grey-c
-  height: 90%
+  height: 80%
 
 .diagram
   display: inline-block
   height: 0%
   width: 25px
   margin: 0 1em
-  -webkit-box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.1)
-  box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.1)
+  -webkit-box-shadow: 5px 0px 0px 0px rgba(0, 0, 0, 0.1)
+  box-shadow: 5px 0px 0px 0px rgba(0, 0, 0, 0.1)
 
 .combination-diagram
   display: inline-block
@@ -103,12 +101,24 @@ ul
 
 .diagram-legend
   margin-bottom: 20px
-  overflow: hidden
   background-color: #f7f7f7
   -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
   -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
   padding: 3em
+
+.diagram-label
+  cursor: default
+  -webkit-transform: rotate(90deg)
+  -moz-transform: rotate(90deg)
+  width: 0
+  position: absolute
+  z-index: 10
+  font-size: 0.85em
+  bottom: -2em
+  left: 0.9em
+  overflow: visible
+  white-space: nowrap
 
 .cornflower
   background-color: $cornflower-blue
