@@ -10,22 +10,22 @@ map '/' do
     :root => "public",
     :urls => ["/audio"],
     :content_type => "audio/mpeg",
-    :cache_control => "public,max-age=#{365 * 24 * 3600}"
+    :cache_control => "public, max-age=81000"
   }
   use Rack::Static, {
     :root => "public",
     :urls => ["/img"],
-    :cache_control => "public,max-age=#{365 * 24 * 3600}"
+    :cache_control => "public, max-age=81000"
   }
   use Rack::Static, {
     :root => "public",
     :urls => ["/robots.txt"],
-    :cache_control => "public,max-age=#{365 * 24 * 3600}"
+    :cache_control => "public, max-age=81000"
   }
   use Rack::Static, {
     :root => "public",
     :urls => ["/external/js","/external/css", "/external/img"],
-    :cache_control => "public,max-age=#{365 * 24 * 3600}"
+    :cache_control => "public, max-age=81000"
   }
 
   use Rack::Session::Cookie, :secret => ENV['SESSION_SECRETE'], :expire_after => 30 * 3600

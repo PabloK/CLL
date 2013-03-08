@@ -3,6 +3,7 @@ require 'sass'
 require 'coffee-script'
 
 class SassCssConverter < Sinatra::Base
+    cache_control :public , :max_age => 3600*24
     sass_dir= File.dirname(__FILE__) + "/../../assets/css"
     set :views, sass_dir
     get '/*.css' do
@@ -13,6 +14,7 @@ class SassCssConverter < Sinatra::Base
 end
 
 class CoffeeJsConverter < Sinatra::Base
+    cache_control :public , :max_age => 3600*24
     Tilt::CoffeeScriptTemplate.default_bare = true
     set :views, File.dirname(__FILE__) + "/../../assets/js"
     get '/*.js' do
