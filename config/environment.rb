@@ -5,7 +5,6 @@ require 'rubygems'
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'data_mapper'
-require 'pony'
 require 'uglifier'
 require 'json'
 
@@ -29,22 +28,6 @@ class  Sinatra::Base
   
   # Register session based flash
   register Sinatra::Flash
-
-  # Mailer configuration
-  options = {      
-    :from => "noreply@asciisoccer.herokuapps.com",
-    :via => :smtp,
-    :via_options => {
-        :user_name => ENV['SENDGRID_USERNAME'],
-        :password => ENV['SENDGRID_PASSWORD'],
-        :domain => "localhost",
-        :address => "smtp.sendgrid.net",
-        :port => 587,
-        :authentication => :plain,
-        :enable_starttls_auto => true
-      }
-    }
-  Pony.options = options
 
 end
 
