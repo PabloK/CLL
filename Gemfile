@@ -12,6 +12,7 @@ gem "bcrypt-ruby"
 gem "uglifier"
 gem "activesupport"
 gem "json"
+gem "thin"
 
 group :test do
   gem 'rspec'
