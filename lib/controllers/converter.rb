@@ -3,10 +3,10 @@ require 'sass'
 require 'coffee-script'
 
 class SassCssConverter < Sinatra::Base
-    cache_control :public , :max_age => 3600*24
     sass_dir= File.dirname(__FILE__) + "/../../assets/css"
     set :views, sass_dir
     get '/*.css' do
+      cache_control :public , :max_age => 3600*24
       content_type 'text/css', :charset => 'utf-8'
       filename = params[:splat].first
       sass filename.to_sym
@@ -14,10 +14,10 @@ class SassCssConverter < Sinatra::Base
 end
 
 class CoffeeJsConverter < Sinatra::Base
-    cache_control :public , :max_age => 3600*24
     Tilt::CoffeeScriptTemplate.default_bare = true
     set :views, File.dirname(__FILE__) + "/../../assets/js"
     get '/*.js' do
+      cache_control :public , :max_age => 3600*24
       content_type 'text/javascript', :charset => 'utf-8'
       filename = params[:splat].first
       if ENV['RACK_ENV'] == 'production'
