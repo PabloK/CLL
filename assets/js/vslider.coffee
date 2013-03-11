@@ -84,5 +84,5 @@
   # Helper for removing the sliders
   $.fn.vSlider.remove = () ->
     return $(".vslider").remove()
-     
+
 ) jQuery
