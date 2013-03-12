@@ -15,6 +15,36 @@ task :upgrade do
   puts "[rake]: Database has been upgraded."
 end
 
+desc "Auto populate with static data"
+task :autopopulate do
+  default = YAML::load_file(File.open('config/default_data.yml'))
+  
+  # Populate database with default areas
+  default['areas'].each do |area|
+    unless Area.exists(area)
+      new_area = Area.new 
+      new_area.name = area
+      unless new_area.save
+        abort("Could not intialize database with default values")
+      else
+        puts "[rake]: Populated areas with #{area}" 
+      end
+    end
+  end
+  
+  # Populate database with default tracks
+  default['tracks'].each do |area|
+    unless ConsultantTrack.exists(area)
+      new_track = ConsultantTrack.new 
+      new_track.name = area
+      unless new_track.save
+        abort("Could not intialize database with default values")
+      else
+        puts "[rake]: Populated areas with #{area}" 
+      end
+    end
+  end
+end
 
 desc "Run system wide test suite."
 begin
