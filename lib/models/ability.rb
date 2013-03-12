@@ -42,6 +42,8 @@ class Ability
   # Embrace or create the ability if it is used
   def self.use_ability(area ,ability)
       return false if ability.length < 3 or ability.length > 32 
+      #TODO fix the problem with exists function
+      # It does not check for abilities in areas but just abilites
       unless Ability.exists(ability)
          new_ability = Ability.new
          new_ability.name = ability
@@ -50,10 +52,11 @@ class Ability
            new_ability.save 
          else
           nil
-          #TODO error report
+          #TODO Add an error message here perhaps?
          end
       else
         current_ability = Ability.first(:name => ability)
+        current_ability.areas << Area.get(area)
         current_ability.embrace!
       end
 
