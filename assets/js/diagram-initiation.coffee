@@ -1,5 +1,5 @@
 sliderHeight = 10
-initiateAbilityKey = () ->
+initSlider = () ->
   $(".targetAbility").vSlider({
     argMinHeight : ((self) ->
       return self.siblings(".currentAbility").height() + sliderHeight
@@ -14,6 +14,8 @@ initiateAbilityKey = () ->
       return self.siblings(".targetAbility").height() - sliderHeight
     )
   })
+
+# Helper function for calculating the values of the sliders
 getSliderValues = () ->
   $(".combination-diagram").each(()->
     maxHeight = $(this).parent().height()
@@ -30,6 +32,7 @@ getSliderValues = () ->
     console.log([targetAbilityPercent, currentAbilityPercent])
 
   )
+
 $(document).ready(()->
-  initiateAbilityKey()
+  initSlider()
 )

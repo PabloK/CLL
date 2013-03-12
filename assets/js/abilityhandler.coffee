@@ -18,12 +18,28 @@ class AbilityHandler
       <div class=\"combination-diagram\">
         <div class=\"diagram currentAbility cornflower\"></div>
         <div class=\"diagram targetAbility grey-5\"></div>
+        <div class=\"remove-button label label-important\">
+          <div class=\"icon-remove icon-white\"></div>
+        </div>
         <label class=\"diagram-label\">" + ability + "</label>
       </div>
       "
       $(".diagram-baseline").append(new_diagram)
-      
-      initiateAbilityKey()
+     
+      # Initiate a new slider 
+      initSlider()
+      abilityHandler = this
+      $(".remove-button").click(()->
+        abilityHandler.removeAbility(ability)
+        $(this).parent().remove()
+      )
+
+  removeAbility: (ability) ->
+    console.log(@usedAbilitys)
+    index = $.inArray(ability, @usedAbilitys)
+    console.log(index)
+    unless index == -1
+      @usedAbilitys.splice(index,1)
   
   resetField: ->
     $("#ability").val ""
