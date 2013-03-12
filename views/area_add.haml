@@ -3,5 +3,5 @@
     %label Lägg till kompetensområde:
   %form{:action => "/area/", :method => "POST"}
     .input-append
-      %input#area{:type => "text",:name => "name", :value => "#{@area}"}
+      %input#area{:type => "text", :tabindex => 1,:name => "name", :value => "#{@area}"}
       %button.btn{:type => "submit"} Lägg till

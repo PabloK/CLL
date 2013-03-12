@@ -8,6 +8,15 @@
 %script{:type => "text/javascript", :src  => "/js/message.js"}
 %script{:type => "text/javascript", :src  => "/js/abilityhandler.js"}
 %script{:type => "text/javascript", :src  => "/js/vslider.js"}
+:javascript
+  $(document).ready(function(){
+    $('.help').mouseenter(function (){
+      $(this).popover('show');
+    });
+    $('.help').mouseleave(function (){
+      $(this).popover('hide');
+    });
+  });
 -if @message
   :javascript
     $(document).ready(function(){
