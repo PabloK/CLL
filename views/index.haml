@@ -3,13 +3,8 @@
     %div
       %label.help{:for => "track", :'data-content' => "Här väljer du de konsult spår du vill tillhöra. Sedan klickar du på pluset för att lägga till bas förmågor för det konsultspåret.",:'data-title' => "Välj konsultspår", :'data-placement' => "bottom"} Konsultspår:
       %select#track{:name => "track", :tabindex => 1}
-        %option mekanik
-        %option systemutvecking
-        %option kommunikation
-        %option systemintegration
-        %option informations säkerhet
-        %option logistik
-        %option teknikinformation
+        -@consultant_tracks.each do |track|
+          %option=track.name
     %div
       %label.help{:for => "area", :'data-content' => "Här väljer du det kompetensområde du vill lägga till en förmåga i. Sedan väljer du din förmåga genom att fylla i den och trycka på plus. Du kan välja förmågor i flera kompetensområden. Områdena är tillför att underlätta sökning. Tänk på att de förmågor du skapar senare blir endel av det området.",:'data-title' => "Välj område för din förmåga", :'data-placement' => "bottom"} Kompetensområde:
       %select#area{:name => "area", :tabindex => 2}

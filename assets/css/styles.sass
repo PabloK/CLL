@@ -9,13 +9,17 @@
 
 body 
   font-family: Arial, Sans-Serif
-  background-image: url('/img/webtreats-paper-pattern-1-grey.jpg')
+  background-image: url('/img/background.jpg')
 
 li
   list-style: none
 
 ul
   margin: 1em 0
+
+.odd , .even
+  padding: 0.5em
+
 
 .odd
   background-color: $grey-e
@@ -26,6 +30,7 @@ ul
   background-color: $white
   min-height: 20em
   border-radius: 0.5em
+  @include shadow($grey-5)
 
 .ui-menu
   display: block

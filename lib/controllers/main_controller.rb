@@ -7,6 +7,7 @@ class MainController < Sinatra::Base
     end
 
     get '/' do
+      @consultant_tracks = ConsultantTrack.all()
       @areas = Area.all
       haml :index
     end

@@ -33,7 +33,7 @@ map '/' do
   # Configure menu
   $MENU = []
   $MENU.push({:text => "Mina nycklar", :url => "/"})
-  $MENU.push({:text => "Administrera", :url => "/area/list"})
+  $MENU.push({:text => "Administrera", :url => "/admin"})
   $MENU.push({:text => "Logga ut", :url => "/logout"})
 
   # Configuration of css and javascript compilation
@@ -51,6 +51,14 @@ map '/' do
 
   map '/area' do
     run AreaController
+  end
+
+  map '/consultant_track' do
+    run ConsultantTrackController
+  end
+
+  map '/admin' do
+    run AdminController
   end
 
   map '/login' do

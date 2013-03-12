@@ -4,6 +4,7 @@ class AreaController < Sinatra::Base
     login unless ENV["RACK_ENV"] == "development"
     @area = nil
     @message = flash[:message]
+    admin_menu
   end
 
   get '/' do

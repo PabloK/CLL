@@ -1,0 +1,7 @@
+.col5
+  .blue_row
+    %h2 Kosultspår
+  %ul.colored_list
+    -@consultant_tracks.each do |consultant_track|
+      %li{:class => cycle('odd','even')}=consultant_track.name
+  %button.btn{:type => "link", :onClick => "window.location.href='/consultant_track'"} Lägg till kosultspår
