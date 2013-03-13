@@ -2,9 +2,14 @@
   %form{ :onsubmit => "$('#ability').trigger('autocompleteselect'); return false;"}
     %div
       %label.help{:for => "track", :'data-content' => "Här väljer du de konsult spår du vill tillhöra. Sedan klickar du på pluset för att lägga till bas förmågor för det konsultspåret.",:'data-title' => "Välj konsultspår", :'data-placement' => "bottom"} Konsultspår:
-      %select#track{:name => "track", :tabindex => 1}
-        -@consultant_tracks.each do |track|
-          %option=track.name
+      %div.input-append
+        %select#track{:name => "track", :tabindex => 1}
+          -@consultant_tracks.each do |track|
+            %option=track.name
+        %button.btn 
+          &nbsp;
+          .icon-plus
+    %hr
     %div
       %label.help{:for => "area", :'data-content' => "Kunskaps områden är ett filter för kunskapsområden som hjälper dig hitta sålla. Beroende på vad du väljer här får du olika valmöjligheter bland kompetensområden", :'data-title' => "Välj område för din förmåga", :'data-placement' => "bottom"} Kunskapsområde:
       %select#domains{:name => "area", :tabindex => 2}
