@@ -1,5 +1,5 @@
 setMessage = (text) ->
   cover = $("#messageModal")
   cover.show()
-  message = cover.children()
-  message.html(text)
+  cover.html(text)
+  return cover

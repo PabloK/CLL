@@ -19,12 +19,33 @@ desc "Auto populate with static data"
 task :autopopulate do
   default = YAML::load_file(File.open('config/default_data.yml'))
   
+  # Populate database with default domains
+  default['domains'].each do |domain|
+    unless Domain.exists(domain)
+      new_domain = Domain.new 
+      new_domain.name = domain
+      unless new_domain.save
+        new_domain.errors.each do |error|
+          puts error 
+        end
+        abort("Could not intialize database with default values")
+      else
+        puts "[rake]: Populated domains with #{domain}" 
+      end
+    end
+  end
+
+  default_domain = Domain.first()
   # Populate database with default areas
   default['areas'].each do |area|
     unless Area.exists(area)
       new_area = Area.new 
+      new_area.domains << default_domain
       new_area.name = area
       unless new_area.save
+        new_area.errors.each do |error|
+          puts error 
+        end
         abort("Could not intialize database with default values")
       else
         puts "[rake]: Populated areas with #{area}" 

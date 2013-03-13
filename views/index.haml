@@ -6,10 +6,17 @@
         -@consultant_tracks.each do |track|
           %option=track.name
     %div
+      %label.help{:for => "area", :'data-content' => "Kunskaps områden är ett filter för kunskapsområden som hjälper dig hitta sålla. Beroende på vad du väljer här får du olika valmöjligheter bland kompetensområden", :'data-title' => "Välj område för din förmåga", :'data-placement' => "bottom"} Kunskapsområde:
+      %select#domains{:name => "area", :tabindex => 2}
+        -if @domains
+          -@domains.each do |domain|
+            %option{:value => domain.name}=domain.name
+    %div
       %label.help{:for => "area", :'data-content' => "Här väljer du det kompetensområde du vill lägga till en förmåga i. Sedan väljer du din förmåga genom att fylla i den och trycka på plus. Du kan välja förmågor i flera kompetensområden. Områdena är tillför att underlätta sökning. Tänk på att de förmågor du skapar senare blir endel av det området.",:'data-title' => "Välj område för din förmåga", :'data-placement' => "bottom"} Kompetensområde:
       %select#area{:name => "area", :tabindex => 2}
-        -@areas.each do |area|
-          %option{:value => area.name}=area.name
+        -if @areas
+          -@areas.each do |area|
+            %option{:value => area.name}=area.name
     %div
       %label.help{:for => "ability", :'data-content' => "Skriv in en förmåga du är intresserad att av att disskutera med din chef. Tryck sedan på plus eller enter för att lägga till en förmågestapel.",:'data-title' => "Lägg till förmåga", :'data-placement' => "bottom"} Förmåga:
       %input#ability{:type => "text", :name => "ability", :tabindex => 3}    

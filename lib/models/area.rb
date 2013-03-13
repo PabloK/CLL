@@ -1,7 +1,8 @@
 class Area
   include DataMapper::Resource
   property :name, String, :required => true, :key => true
-  has n , :abilitys, :through => Resource, :order => [:fondness.desc]
+  has n , :abilities, :through => Resource, :order => [:fondness.desc]
+  has n, :domains, :through => Resource
 
   def self.find_abilitys(area_name, ability)
     area = Area.first(:name => area_name)

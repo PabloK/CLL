@@ -1,3 +1,6 @@
+domains:
+  - programmering
+
 areas:
   - programmering
   - användbarhet
@@ -36,3 +39,4 @@ tracks:
   - information säkerhet
   - kommunikation
   - logistik 
+

@@ -1,7 +1,7 @@
 class Domain
   include DataMapper::Resource
   property :name, String, :required => true, :key => true
-  has n , :areas, :through => Resource
+  has n, :areas, :through => Resource
 
   def name=(name)
     super(name.downcase)

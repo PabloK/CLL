@@ -19,4 +19,5 @@ group :test do
   gem 'randexp'
   gem 'factory_girl'
   gem 'capybara'
+  gem 'capybara-webkit'
 end
