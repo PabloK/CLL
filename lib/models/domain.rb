@@ -7,7 +7,7 @@ class Domain
     super(name.downcase)
   end
   
-  def self.exists(area)
-    return Domain.count(:name.like => Domain.downcase) != 0
+  def self.exists(domain)
+    return Domain.count(:name.like => domain.downcase) != 0
   end
 end
