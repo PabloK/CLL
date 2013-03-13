@@ -20,7 +20,7 @@ class ConsultantTrackController < Sinatra::Base
 
       if new_consultant_track.save
         modal({:heading => "Nytt Konsultspår", :body => "Konsultspåret #{@consultant_track} har sparats."})
-        redirect '/consultant_track/list'
+        redirect '/admin/consultant_track/list'
       end
 
       # TODO handle validation errors

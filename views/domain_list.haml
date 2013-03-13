@@ -1,0 +1,7 @@
+.col5
+  .blue_row
+    %h2 Kunskapsområden
+  %ul.colored_list
+    -@domains.each do |domain|
+      %li{:class => cycle('odd','even')}=domain.name
+  %button.btn{:type => "link", :onClick => "window.location.href='/admin/domain'"} Lägg till kunskapsområde

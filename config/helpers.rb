@@ -19,12 +19,6 @@ class  Sinatra::Base
 
     @login = true
   end
-
-  def admin_menu
-    @submenu = []
-    @submenu.push({:text => "Kompetensområden", :url => "/area/list"})
-    @submenu.push({:text => "Konsultspår", :url => "/consultant_track/list"})
-  end
 end
 
 # Haml helpers

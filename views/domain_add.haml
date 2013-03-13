@@ -1,7 +1,7 @@
 .col5
   .blue_row
-    %label Lägg till konsultspår:
-  %form{:action => "/admin/consultant_track/", :method => "POST"}
+    %label Lägg till kunskapsområde
+  %form{:action => "/domain/", :method => "POST"}
     .input-append
       %input#consultant_track{:type => "text", :tabindex => 1,:name => "name", :value => "#{@consultant_track}"}
       %button.btn{:type => "submit"} Lägg till

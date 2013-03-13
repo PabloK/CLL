@@ -20,7 +20,7 @@ class AreaController < Sinatra::Base
 
       if new_area.save
         modal({:heading => "Nytt Kompetensområde", :body => "Kompetensområdet #{@area} har sparats."})
-        redirect '/area/list'
+        redirect '/admin/area/list'
       end
 
       # TODO handle validation errors
