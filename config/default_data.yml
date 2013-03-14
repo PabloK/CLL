@@ -1,35 +1,9 @@
-domains:
-  - programmering
-
 areas:
-  - programmering
-  - användbarhet
-  - interaktionsdesign
-  - hmi
-  - systemanalys
-  - systemdesign
-  - systemarkitektur
-  - systemintegration
-  - systemsäkerhet
-  - inbyggdasystem
-  - realtidssystem
-  - mjukvaruarkitektur
-  - programmering
-  - kompilatorkonstruktion
-  - modellkompilatorer
-  - datorgrafik
-  - io-system
-  - elektronik
-  - analogelektronik
-  - digitalelektronik
-  - simulering
-  - unittest
-  - systemtest
-  - integrationstest
-  - konfigurationsstyrning
-  - versionshantering
-  - reglerteknik
-  - fysikaliskmodellering
+  - mjukvaru utveckling
+  - mekanik
+  - logistik
+  - projektledning
+  - säkerhet
 
 tracks:
   - mekanik

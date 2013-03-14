@@ -8,8 +8,7 @@ class MainController < Sinatra::Base
 
     get '/' do
       @consultant_tracks = ConsultantTrack.all()
-      @domains = Domain.all
-      @areas = @domains.first().areas()
+      @areas = Area.all()
       haml :index
     end
 

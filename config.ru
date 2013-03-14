@@ -41,7 +41,6 @@ map '/' do
   class Sinatra::Base
     def admin_menu
       @submenu = []
-      @submenu.push({:text => "Kunskapsområden", :url => "/admin/domain/list"})
       @submenu.push({:text => "Kompetensområden", :url => "/admin/area/list"})
       @submenu.push({:text => "Konsultspår", :url => "/admin/consultant_track/list"})
     end
@@ -72,10 +71,6 @@ map '/' do
 
     map '/consultant_track' do
       run ConsultantTrackController
-    end
-
-    map '/domain' do
-      run DomainController
     end
 
     run AdminController
