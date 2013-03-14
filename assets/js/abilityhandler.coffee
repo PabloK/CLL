@@ -35,9 +35,7 @@ class AbilityHandler
       )
 
   removeAbility: (ability) ->
-    console.log(@usedAbilitys)
     index = $.inArray(ability, @usedAbilitys)
-    console.log(index)
     unless index == -1
       @usedAbilitys.splice(index,1)
   
@@ -69,9 +67,23 @@ class AbilityHandler
         console.log "The server is not responding"
 
 $(document).ready ->
-
+  
   autoAbilityHandler = new AbilityHandler
-
+  $("#add_track").click(()->
+      track = $("#track").val()
+      $.ajax(
+        url: "/abilitysForTrack"
+        type: "POST"
+        dataType: "json"
+        data:
+          track: track
+      ).done((data) ->
+        # TODO handle the ability array
+        #autoAbilityHandler.addAbility(data)
+      ).error( ->
+        console.log "The server is not responding"
+      )
+  )
   auto = $("#ability").autocomplete(
     source: (request, response) ->
       $.ajax(

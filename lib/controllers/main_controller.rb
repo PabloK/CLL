@@ -27,4 +27,16 @@ class MainController < Sinatra::Base
         abilitys.to_json
       end
     end
+
+    post '/abilitysForTrack' do
+      track = ConsultantTrack.first(:name.like => params[:track])
+      puts track
+      if track
+        if track.abilitys 
+          return track.abilitys.to_json
+        end
+      else
+        halt 404
+      end
+    end
 end
