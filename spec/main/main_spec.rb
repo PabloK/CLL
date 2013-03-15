@@ -16,10 +16,11 @@ describe "Layout", :type => :request do
     expect(second).to_not eq(first)
   end 
 
-  it 'show a modal if the modal parameter is set' do
+  it 'shows a modal if the modal parameter is set' do
     visit '/'
     page.execute_script("setMessage('MODAL').modal();")
     page.should have_content('MODAL')
+    save_and_open_page
   end
 
   describe "Areas", :type => :request do
