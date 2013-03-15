@@ -1,6 +1,7 @@
 # encoding: utf-8
 require './config/environment'
 require './config/helpers'
+require './config/controller_types'
 require './lib/controllers'
 
 map '/' do

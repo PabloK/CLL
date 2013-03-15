@@ -1,7 +1,8 @@
 class Ability
   include DataMapper::Resource
 
-  property :name, String, :required => true, :key => true
+  property :id, Serial, :key => true
+  property :name, String, :required => true
 
   # A measurement of how much this ability is embraced
   property :number_of_inclusions, Integer, :required => true, :default => 1

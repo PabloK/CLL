@@ -35,4 +35,8 @@ end
 if ENV['RACK_ENV'] == 'development'
   DataMapper::Logger.new($stdout, :debug)
 end
-DataMapper::setup(:default, ENV['DATABASE_URL'])
+if ENV['RACK_ENV'] == 'test'
+  DataMapper::setup(:default, ENV['TESTDATABASE_URL']) 
+else
+  DataMapper::setup(:default, ENV['DATABASE_URL'])
+end

@@ -1,6 +1,7 @@
 class Area
   include DataMapper::Resource
-  property :name, String, :required => true, :key => true
+  property :id, Serial, :key => true
+  property :name, String, :required => true
   has n , :abilities, :through => Resource, :order => [:fondness.desc]
 
   def self.find_abilitys(area_name, ability)

@@ -1,7 +1,6 @@
 # encoding: utf-8
-class ConsultantTrackController < Sinatra::Base
+class ConsultantTrackController < ProtectedController
   before do
-    login unless ENV["RACK_ENV"] == "development"
     @consultant_track = nil
     @message = flash[:message]
     admin_menu

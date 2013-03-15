@@ -1,7 +1,6 @@
 # encoding: utf-8
-class AreaController < Sinatra::Base
+class AreaController < ProtectedController
   before do
-    login unless ENV["RACK_ENV"] == "development"
     @area = nil
     @message = flash[:message]
     admin_menu

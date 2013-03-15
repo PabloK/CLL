@@ -84,6 +84,8 @@ GEM
     i18n (0.6.4)
     json (1.7.7)
     json_pure (1.7.7)
+    launchy (2.0.5)
+      addressable (~> 2.2.6)
     libv8 (3.11.8.13)
     mime-types (1.21)
     multi_json (1.6.1)
@@ -148,6 +150,7 @@ DEPENDENCIES
   factory_girl
   haml
   json
+  launchy
   rake
   randexp
   rspec

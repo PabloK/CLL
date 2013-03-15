@@ -1,3 +1,4 @@
+#encoding: utf-8
 ENV['RACK_ENV'] = 'test'
 require 'haml'
 require './config/environment'
@@ -16,3 +17,4 @@ RSpec.configure do |config|
   config.include Capybara::RSpecMatchers, :type => :request
 end
 Capybara.app = eval "Rack::Builder.new {#{File.read('./config.ru')}}"
+DataMapper.auto_migrate!   

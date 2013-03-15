@@ -1,0 +1,6 @@
+export DATABASE_URL="postgres://user:password@localhost"
+export TESTDATABASE_URL="postgres://user:password@localhost/test"
+export SESSION_SECRETE=""
+export SENDGRID_PASSWORD=""
+export SENDGRID_USERNAME=""
+export CLL_PASS=""

@@ -1,8 +1,6 @@
 # encoding: utf-8
-class MainController < Sinatra::Base
-
+class MainController < ProtectedController
     before do
-      login unless ENV["RACK_ENV"] == "development"
       @diagram = true
     end
 
