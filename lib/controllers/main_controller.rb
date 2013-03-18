@@ -11,27 +11,28 @@ class MainController < ProtectedController
     end
 
     post '/useAbility' do
+      #TODO area is not an id
       status = Ability.use_ability(params[:area],params[:ability])
       content_type 'application/json'
       return status.to_json 
     end
 
     post '/findAbility' do
-      found_abilitys = Area.find_abilitys(params[:area],params[:ability])
+      found_abilties = Area.find_abilities(params[:area],params[:ability])
       
-      if found_abilitys
-        abilitys = found_abilitys.map{|ability| ability.name}
+      if found_abilties
+        abilties = found_abilties.map{|ability| ability.name}
         content_type 'application/json'
-        abilitys.to_json
+        abilties.to_json
       end
     end
 
-    post '/abilitysForTrack' do
+    post '/abiltiesForTrack' do
       track = ConsultantTrack.first(:name.like => params[:track])
       puts track
       if track
-        if track.abilitys 
-          return track.abilitys.to_json
+        if track.abilties 
+          return track.abilties.to_json
         end
       else
         halt 404

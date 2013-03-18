@@ -68,8 +68,8 @@ class Ability
     return Ability.count(:name.like => ability.downcase) != 0
   end
 
-  def self.find_abilitys(ability)
-    all(:fields => [:name], :name.like => '%'+ability.downcase+'%', :order => [:fondness.desc],:limit => 10)
+  def self.find_abilties(ability)
+    all(:fields => [:name, :fondness], :name.like => '%'+ability.downcase+'%', :order => [:fondness.desc],:limit => 10)
   end
 
   def name=(name)

@@ -4,10 +4,10 @@ class Area
   property :name, String, :required => true
   has n , :abilities, :through => Resource, :order => [:fondness.desc]
 
-  def self.find_abilitys(area_name, ability)
-    area = Area.first(:name => area_name)
+  def self.find_abilities(area_id, ability)
+    area = Area.first(area_id)
     if area and ability
-      area.abilitys.all(:fields => [:name], 
+      area.abilities.all(:fields => [:name, :fondness], 
                      :name.like => '%'+ability.downcase+'%', 
                      :number_of_inclusions.gt => $CONFIG[:min_num_of_inclusions_for_display],
                      :order => [:fondness.desc], :limit => 10) 

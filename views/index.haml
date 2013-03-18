@@ -15,7 +15,7 @@
       %select#area{:name => "area", :tabindex => 2}
         -if @areas
           -@areas.each do |area|
-            %option{:value => area.name}=area.name
+            %option{:value => area.id}=area.name
     %div
       %label.help{:for => "ability", :'data-content' => "Skriv in en förmåga du är intresserad att av att disskutera med din chef. Tryck sedan på plus eller enter för att lägga till en förmågestapel.",:'data-title' => "Lägg till förmåga", :'data-placement' => "bottom"} Förmåga:
       %input#ability{:type => "text", :name => "ability", :tabindex => 3}    
