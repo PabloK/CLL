@@ -6,6 +6,7 @@ areas:
   - logistik
   - projektledning
   - säkerhet
+  - konstruktion
 
 tracks:
   - mekanik
@@ -17,16 +18,21 @@ tracks:
   - logistik 
 
 base_abilities:
-  - track: 
-    name: systemutveckling
-    areas:
-      - name: användbarhet
-        abilities: 
-          - beräkningskunskap
-          - hållfasthetslära
-          - konstruktion
+  tracks: 
+    - name: systemutveckling
+      areas: 
       - name: databashantering
         abilities: 
           - Postgres
           - Mysql
           - Sqlite
+      - name: användbarhet
+        abilities: 
+          - beräkningskunskap
+          - hållfasthetslära
+          - konstruktion
+    - name: logistik
+      areas: 
+      - name: logistik
+        abilities: 
+          - Optimeringslära

@@ -12,4 +12,10 @@ class ConsultantTrack
     return ConsultantTrack.count(:name.like => consultant_track.downcase) != 0
   end
   
+  def has_ability? (ability_id)
+    self.abilities.each do |ability|
+      return true if ability_id == ability.id
+    end
+    return false
+  end
 end

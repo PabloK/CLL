@@ -15,6 +15,7 @@ class Ability
   validates_length_of :name, :min => 3, :max => 32
   
   has n, :areas, :through => Resource
+  has n, :consultant_tracks, :through => Resource
 
   # Embrace the ability
   def embrace!
@@ -49,21 +50,20 @@ class Ability
          new_ability = Ability.new
          new_ability.name = ability
          new_ability.areas << Area.get(area)
-         if new_ability
-           new_ability.save 
-         else
-          nil
-          #TODO Add an error message here perhaps?
+         if new_ability and new_ability.save 
+           return new_ability.id
          end
+        
       else
-        current_ability = Ability.get(ability)
+        current_ability = Ability.first(:name.like => ability)
         if current_ability
           current_ability.areas << Area.get(area)
           current_ability.embrace!
+          return current_ability.id
         end
       end
-
-      return ability
+      
+    return false
   end
 
   def self.exists(ability)
