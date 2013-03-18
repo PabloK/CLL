@@ -5,7 +5,7 @@
       %div.input-append
         %select#track{:name => "track", :tabindex => 1}
           -@consultant_tracks.each do |track|
-            %option=track.name
+            %option{:value => track.id}=track.name
         %button#add_track.btn 
           &nbsp;
           .icon-plus

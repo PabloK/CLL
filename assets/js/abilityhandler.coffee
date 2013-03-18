@@ -72,12 +72,13 @@ $(document).ready ->
   $("#add_track").click(()->
       track = $("#track").val()
       $.ajax(
-        url: "/abilitysForTrack"
+        url: "/abilitiesForTrack"
         type: "POST"
         dataType: "json"
         data:
           track: track
       ).done((data) ->
+        console.log(data)
         # TODO handle the ability array
         #autoAbilityHandler.addAbility(data)
       ).error( ->

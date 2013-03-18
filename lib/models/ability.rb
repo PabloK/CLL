@@ -56,9 +56,11 @@ class Ability
           #TODO Add an error message here perhaps?
          end
       else
-        current_ability = Ability.first(:name => ability)
-        current_ability.areas << Area.get(area)
-        current_ability.embrace!
+        current_ability = Ability.get(ability)
+        if current_ability
+          current_ability.areas << Area.get(area)
+          current_ability.embrace!
+        end
       end
 
       return ability

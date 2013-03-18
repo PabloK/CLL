@@ -1,6 +1,8 @@
 areas:
   - mjukvaru utveckling
   - mekanik
+  - databashantering
+  - användbarhet
   - logistik
   - projektledning
   - säkerhet
@@ -13,3 +15,18 @@ tracks:
   - information säkerhet
   - kommunikation
   - logistik 
+
+base_abilities:
+  - track: 
+    name: systemutveckling
+    areas:
+      - name: användbarhet
+        abilities: 
+          - beräkningskunskap
+          - hållfasthetslära
+          - konstruktion
+      - name: databashantering
+        abilities: 
+          - Postgres
+          - Mysql
+          - Sqlite

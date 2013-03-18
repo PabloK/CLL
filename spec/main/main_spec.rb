@@ -20,7 +20,6 @@ describe "Layout", :type => :request do
     visit '/'
     page.execute_script("setMessage('MODAL').modal();")
     page.should have_content('MODAL')
-    save_and_open_page
   end
 
   describe "Areas", :type => :request do

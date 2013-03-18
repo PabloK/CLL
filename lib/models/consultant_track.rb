@@ -2,7 +2,7 @@ class ConsultantTrack
   include DataMapper::Resource
   property :id, Serial, :key => true
   property :name, String, :required => true
-  has n , :abilitys, :through => Resource, :order => [:fondness.desc]
+  has n , :abilities, :through => Resource, :order => [:fondness.desc]
 
   def name=(name)
     super(name.downcase)
