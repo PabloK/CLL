@@ -10,7 +10,9 @@ class AbilityHandler
   isAbilityUsed: (ability)->
     return $.inArray(ability, @usedAbilitys) isnt -1
 
+  # TODO handle colors and id's aswell
   addAbility: (ability) ->
+    return if @isAbilityUsed(ability)
     if ability isnt false
       @usedAbilitys.push ability
       # TODO this could perhaps be a view
@@ -78,9 +80,8 @@ $(document).ready ->
         data:
           track: track
       ).done((data) ->
-        console.log(data)
-        # TODO handle the ability array
-        #autoAbilityHandler.addAbility(data)
+        for ability in data
+          autoAbilityHandler.addAbility(ability.name)
       ).error( ->
         console.log "The server is not responding"
       )

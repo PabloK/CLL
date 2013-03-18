@@ -7,6 +7,7 @@ areas:
   - projektledning
   - säkerhet
   - konstruktion
+  - horisontal integration
 
 tracks:
   - mekanik
@@ -23,16 +24,23 @@ base_abilities:
       areas: 
       - name: databashantering
         abilities: 
-          - Postgres
-          - Mysql
-          - Sqlite
-      - name: användbarhet
+          - sql
+      - name: mjukvaru utveckling
         abilities: 
-          - beräkningskunskap
-          - hållfasthetslära
-          - konstruktion
+          - programmering
+          - testning
     - name: logistik
       areas: 
       - name: logistik
         abilities: 
           - Optimeringslära
+    - name: systemintegration
+      areas: 
+      - name: Horisontal integration
+        abilities: 
+          - Optimeringslära
+    - name: mekanik
+      areas: 
+      - name: konstruktion 
+        abilities: 
+          - cad
