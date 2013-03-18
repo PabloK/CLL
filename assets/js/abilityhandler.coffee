@@ -1,18 +1,15 @@
 class AbilityHandler
   constructor: ->
     @usedAbilitys = []
-    @emptyAbilitys()
     parent = this
     $("#area").change ->
       parent.resetField()
-      parent.emptyAbilitys()
 
   isAbilityUsed: (ability)->
     return $.inArray(ability, @usedAbilitys) isnt -1
 
   # TODO handle colors and id's aswell
   addAbility: (ability) ->
-    return if @isAbilityUsed(ability)
     if ability isnt false
       @usedAbilitys.push ability
       # TODO this could perhaps be a view
@@ -26,29 +23,26 @@ class AbilityHandler
         <label class=\"diagram-label\">" + ability + "</label>
       </div>
       "
-      $(".diagram-baseline").append(new_diagram)
+      appended_diagram = $(".diagram-baseline").append(new_diagram)
      
       # Initiate a new slider 
       initSlider()
       abilityHandler = this
-      $(".remove-button").click(()->
+      $(".diagram-baseline").find(".remove-button").last().click(()->
         abilityHandler.removeAbility(ability)
         $(this).parent().remove()
       )
 
   removeAbility: (ability) ->
+    console.log(@usedAbilitys)
     index = $.inArray(ability, @usedAbilitys)
     unless index == -1
       @usedAbilitys.splice(index,1)
+    console.log(@usedAbilitys)
   
   resetField: ->
     $("#ability").val ""
     $(".ui-autocomplete").hide()
-  
-  emptyAbilitys: ->
-    @usedAbilitys = []
-    $("#selected_abilitys").html ""
-    
   
   useAbility: (ability) ->
     unless @isAbilityUsed(ability)
@@ -81,7 +75,8 @@ $(document).ready ->
           track: track
       ).done((data) ->
         for ability in data
-          autoAbilityHandler.addAbility(ability.name)
+          unless autoAbilityHandler.isAbilityUsed(ability.name)
+            autoAbilityHandler.addAbility(ability.name)
       ).error( ->
         console.log "The server is not responding"
       )
