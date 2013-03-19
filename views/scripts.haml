@@ -11,6 +11,7 @@
 %script{:type => "text/javascript", :src  => "/js/vslider.js"}
 :javascript
   $(document).ready(function(){
+    document.body.addEventListener('touchstart', function(e){ e.preventDefault(); });
     $('.help').mouseenter(function (){
       $(this).popover('show');
     });
