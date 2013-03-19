@@ -11,10 +11,10 @@
     argMinHeight = undefined
     argMaxHeight = undefined
 
-    # Setup stop event for all resize events 
-    $(document).mouseup(()->
-      # Remove all events registered to mousemove
-      container.unbind('mousemove')
+    # Mobile version
+    $(document).bind('vmouseup',()->
+
+      container.unbind('vmousemove')
     )
     
     # Customization of configuration 
@@ -66,11 +66,10 @@
 
           diagram.height(newHeight)
 
-        # Set start resize event on all sliders
-        vSlider.mousedown(()->
+        vSlider.bind('vmousedown',()->
           # Set starting position of mouse 
           currentPosition = window.event.clientY
-          container.mousemove(()->
+          container.bind('vmousemove',()->
             deltaY = currentPosition - window.event.clientY
             unless deltaY == 0
               currentPosition = window.event.clientY
