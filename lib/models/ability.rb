@@ -51,7 +51,7 @@ class Ability
          new_ability.name = ability
          new_ability.areas << Area.get(area)
          if new_ability and new_ability.save 
-           return new_ability.id
+           return new_ability
          end
         
       else
@@ -59,7 +59,7 @@ class Ability
         if current_ability
           current_ability.areas << Area.get(area)
           current_ability.embrace!
-          return current_ability.id
+          return current_ability
         end
       end
       

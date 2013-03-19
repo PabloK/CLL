@@ -10,28 +10,27 @@ class AbilityHandler
 
   # TODO handle colors and id's aswell
   addAbility: (ability) ->
-    if ability isnt false
-      @usedAbilitys.push ability
-      # TODO this could perhaps be a view
-      new_diagram = "
-      <div class=\"combination-diagram\">
-        <div class=\"diagram currentAbility cornflower\"></div>
-        <div class=\"diagram targetAbility grey-5\"></div>
-        <div class=\"remove-button label label-important\">
-          <div class=\"icon-remove icon-white\"></div>
-        </div>
-        <label class=\"diagram-label\">" + ability + "</label>
+    @usedAbilitys.push ability
+    # TODO this could perhaps be a view
+    new_diagram = "
+    <div class=\"combination-diagram\">
+      <div class=\"diagram currentAbility cornflower\"></div>
+      <div class=\"diagram targetAbility grey-5\"></div>
+      <div class=\"remove-button label label-important\">
+        <div class=\"icon-remove icon-white\"></div>
       </div>
-      "
-      appended_diagram = $(".diagram-baseline").append(new_diagram)
-     
-      # Initiate a new slider 
-      initSlider()
-      abilityHandler = this
-      $(".diagram-baseline").find(".remove-button").last().click(()->
-        abilityHandler.removeAbility(ability)
-        $(this).parent().remove()
-      )
+      <label class=\"diagram-label\">" + ability + "</label>
+    </div>
+    "
+    appended_diagram = $(".diagram-baseline").append(new_diagram)
+   
+    # Initiate a new slider 
+    initSlider()
+    abilityHandler = this
+    $(".diagram-baseline").find(".remove-button").last().click(()->
+      abilityHandler.removeAbility(ability)
+      $(this).parent().remove()
+    )
 
   removeAbility: (ability) ->
     console.log(@usedAbilitys)
@@ -55,8 +54,9 @@ class AbilityHandler
         data:
           area: area
           ability: ability
-      ).done((data) ->
-        parent.addAbility(data)
+      ).done((ability) ->
+        if ability isnt false
+          parent.addAbility(ability.name)
       ).complete(() ->
         parent.resetField()
       ).error ->
@@ -65,22 +65,25 @@ class AbilityHandler
 $(document).ready ->
   
   autoAbilityHandler = new AbilityHandler
-  $("#add_track").click(()->
-      track = $("#track").val()
-      $.ajax(
-        url: "/abilitiesForTrack"
-        type: "POST"
-        dataType: "json"
-        data:
-          track: track
-      ).done((data) ->
-        for ability in data
-          unless autoAbilityHandler.isAbilityUsed(ability.name)
-            autoAbilityHandler.addAbility(ability.name)
-      ).error( ->
-        console.log "The server is not responding"
-      )
+
+  $("#add_track").click((event)->
+    console.log(event)
+    track = $("#track").val()
+    $.ajax(
+      url: "/abilitiesForTrack"
+      type: "POST"
+      dataType: "json"
+      data:
+        track: track
+    ).done((data) ->
+      for ability in data
+        unless autoAbilityHandler.isAbilityUsed(ability.name)
+          autoAbilityHandler.addAbility(ability.name)
+    ).error( ->
+      console.log "The server is not responding"
+    )
   )
+
   auto = $("#ability").autocomplete(
     source: (request, response) ->
       $.ajax(
@@ -99,6 +102,7 @@ $(document).ready ->
     )
 
   auto.on "autocompleteselect", (event, ui) ->
+    event.preventDefault
     if typeof (ui) isnt "undefined"
       ability = ui.item.value.toLowerCase()
     else

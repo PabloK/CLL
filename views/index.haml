@@ -6,7 +6,7 @@
         %select#track{:name => "track", :tabindex => 1}
           -@consultant_tracks.each do |track|
             %option{:value => track.id}=track.name
-        %button#add_track.btn 
+        %button#add_track.btn{:type => "button"} 
           &nbsp;
           .icon-plus
     %hr
