@@ -1,5 +1,6 @@
 class ProtectedController < Sinatra::Base
   before do
-    login unless ENV["RACK_ENV"] == "development" or ENV["RACK_ENV"] = "test"
+    no_logon = ["development","test"]
+    login unless no_logon.include? ENV["RACK_ENV"]
   end
 end
