@@ -22,22 +22,20 @@ class AbilityHandler
       <label class=\"diagram-label\">" + ability + "</label>
     </div>
     "
-    appended_diagram = $(".diagram-baseline").append(new_diagram)
+    appended_diagram = $(".diagram-area").append(new_diagram)
    
     # Initiate a new slider 
     initSlider()
     abilityHandler = this
-    $(".diagram-baseline").find(".remove-button").last().click(()->
+    $(".diagram-area").find(".remove-button").last().click(()->
       abilityHandler.removeAbility(ability)
       $(this).parent().remove()
     )
 
   removeAbility: (ability) ->
-    console.log(@usedAbilitys)
     index = $.inArray(ability, @usedAbilitys)
     unless index == -1
       @usedAbilitys.splice(index,1)
-    console.log(@usedAbilitys)
   
   resetField: ->
     $("#ability").val ""
@@ -67,7 +65,6 @@ $(document).ready ->
   autoAbilityHandler = new AbilityHandler
 
   $("#add_track").click((event)->
-    console.log(event)
     track = $("#track").val()
     $.ajax(
       url: "/abilitiesForTrack"

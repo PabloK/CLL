@@ -6,7 +6,7 @@
   $.fn.vSlider = (arg={}) ->
 
     # Standard configuration
-    container = $(".diagram-baseline")
+    container = $(".diagram-area")
     initialValue = 0
     argMinHeight = undefined
     argMaxHeight = undefined

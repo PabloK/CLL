@@ -5,7 +5,7 @@ initSlider = () ->
       return self.siblings(".currentAbility").height() + sliderHeight
     ),
     argMaxHeight : (() ->
-      return $(".diagram-baseline").height() - sliderHeight
+      return $(".diagram-area").height() - sliderHeight
     ),
     initialValue :  sliderHeight
   })
