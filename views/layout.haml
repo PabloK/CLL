@@ -5,27 +5,28 @@
   %body
     .container
       .row-fluid#main-content
-        #messageModal.modal.hide.fade{"aria-hidden" => "true", 
-                               "aria-labelledby" => "myModalLabel", 
-                               :role => "dialog", :tabindex => "-1"}=@message
-        #header.row-fluid
-          .navbar
-            .navbar-inner
-              %ul.nav
-                -$MENU.each do |item|
-                  %li{:class => item[:url] == request.path ? "active" : ""}
-                    %a{:href => item[:url]}=item[:text]
-          -if @submenu
+        .span12-fluid#padded
+          #messageModal.modal.hide.fade{"aria-hidden" => "true", 
+                                 "aria-labelledby" => "myModalLabel", 
+                                 :role => "dialog", :tabindex => "-1"}=@message
+          #header.row-fluid
             .navbar
               .navbar-inner
                 %ul.nav
-                  -@submenu.each do |item|
+                  -$MENU.each do |item|
                     %li{:class => item[:url] == request.path ? "active" : ""}
                       %a{:href => item[:url]}=item[:text]
-        #content.row-fluid
-          =yield
+            -if @submenu
+              .navbar
+                .navbar-inner
+                  %ul.nav
+                    -@submenu.each do |item|
+                      %li{:class => item[:url] == request.path ? "active" : ""}
+                        %a{:href => item[:url]}=item[:text]
+          #content.row-fluid
+            =yield
 
-        #footer.row-fluid
+          #footer.row-fluid
 
-        #scripts
-          =haml :scripts
+          #scripts
+            =haml :scripts
