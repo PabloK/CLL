@@ -1,3 +1,5 @@
 %form{:method => "POST", :action => '/login'}
   %label{:for => "password"} Password
-  %input{:name => "password", :type => "password"}
+  %div.input-append
+    %input{:name => "password", :type => "password"}
+    %button#add_track.btn{:type => "submit"} Logga in

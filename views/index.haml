@@ -24,8 +24,11 @@
       .help{:for => "ability", :'data-content' => "Skriv in en förmåga du är intresserad att av att disskutera med din chef. Tryck sedan på plus eller enter för att lägga till en förmågestapel.",:'data-title' => "Lägg till förmåga", :'data-placement' => "right"} 
         .icon-info-sign
       %label Förmåga:
-      %input#ability{:type => "text", :name => "ability", :tabindex => 3}    
-      #selected_abilitys
+      %div.input-append
+        %input#ability{:type => "text", :name => "ability", :tabindex => 3}    
+        %button#add_track.btn{:type => "submit"} 
+          &nbsp;
+          .icon-plus
 
 .span7
   .diagram-holder
