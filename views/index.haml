@@ -1,7 +1,9 @@
 .span5
   %form{ :onsubmit => "$('#ability').trigger('autocompleteselect'); return false;"}
     %div
-      %label.help{:for => "track", :'data-content' => "Här väljer du de konsult spår du vill tillhöra. Sedan klickar du på pluset för att lägga till bas förmågor för det konsultspåret.",:'data-title' => "Välj konsultspår", :'data-placement' => "bottom"} Konsultspår:
+      .help{:for => "track", :'data-content' => "Här väljer du de konsult spår du vill tillhöra. Sedan klickar du på pluset för att lägga till bas förmågor för det konsultspåret.",:'data-title' => "Välj konsultspår", :'data-placement' => "bottom"} 
+        .icon-info-sign
+      %label Konsultspår:
       %div.input-append
         %select#track{:name => "track", :tabindex => 1}
           -@consultant_tracks.each do |track|
@@ -11,13 +13,17 @@
           .icon-plus
     %hr
     %div
-      %label.help{:for => "area", :'data-content' => "Här väljer du det kompetensområde du vill lägga till en förmåga i. Sedan väljer du din förmåga genom att fylla i den och trycka på plus. Du kan välja förmågor i flera kompetensområden. Områdena är tillför att underlätta sökning. Tänk på att de förmågor du skapar senare blir endel av det området.",:'data-title' => "Välj område för din förmåga", :'data-placement' => "bottom"} Kompetensområde:
+      .help{:for => "area", :'data-content' => "Här väljer du det kompetensområde du vill lägga till en förmåga i. Sedan väljer du din förmåga genom att fylla i den och trycka på plus. Du kan välja förmågor i flera kompetensområden. Områdena är tillför att underlätta sökning. Tänk på att de förmågor du skapar senare blir endel av det området.",:'data-title' => "Välj område för din förmåga", :'data-placement' => "bottom"} 
+        .icon-info-sign
+      %label Kompetensområde:
       %select#area{:name => "area", :tabindex => 2}
         -if @areas
           -@areas.each do |area|
             %option{:value => area.id}=area.name
     %div
-      %label.help{:for => "ability", :'data-content' => "Skriv in en förmåga du är intresserad att av att disskutera med din chef. Tryck sedan på plus eller enter för att lägga till en förmågestapel.",:'data-title' => "Lägg till förmåga", :'data-placement' => "bottom"} Förmåga:
+      .help{:for => "ability", :'data-content' => "Skriv in en förmåga du är intresserad att av att disskutera med din chef. Tryck sedan på plus eller enter för att lägga till en förmågestapel.",:'data-title' => "Lägg till förmåga", :'data-placement' => "bottom"} 
+        .icon-info-sign
+      %label Förmåga:
       %input#ability{:type => "text", :name => "ability", :tabindex => 3}    
       #selected_abilitys
 

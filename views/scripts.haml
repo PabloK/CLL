@@ -2,20 +2,19 @@
 %script{:type => "text/javascript", :src  => "/external/js/jquery-1.9.1.min.js"}
 -#%script{:type => "text/javascript", :src =>  "/external/js/d3.v3.min.js" }
 %script{:type => "text/javascript", :src  => "/external/js/jquery-ui-1.10.0.custom.min.js"}
-%script{:type => "text/javascript", :src  => "/external/js/jquery.mobile.custom.min.js"}
 %script{:type => "text/javascript", :src =>  "/external/js/bootstrap.min.js"}
+%script{:type => "text/javascript", :src  => "/external/js/jquery.mobile.custom.min.js"}
 -if @diagram
   %script{:type => "text/javascript", :src  => "/js/diagram-initiation.js"}
 %script{:type => "text/javascript", :src  => "/js/message.js"}
 %script{:type => "text/javascript", :src  => "/js/abilityhandler.js"}
 %script{:type => "text/javascript", :src  => "/js/vslider.js"}
+
 :javascript
   $(document).ready(function(){
-    $('.help').mouseenter(function (){
-      $(this).popover('show');
-    });
-    $('.help').mouseleave(function (){
-      $(this).popover('hide');
+    $('.help').popover('hide');
+    $('.help').click(function (){
+      $(this)[0].popover('show');
     });
   });
 - if @diagram
