@@ -1,4 +1,4 @@
-sliderHeight = 10
+sliderHeight = 15
 initSlider = () ->
   $(".targetAbility").vSlider({
     argMinHeight : ((self) ->

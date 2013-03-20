@@ -128,7 +128,7 @@ ul
   position: absolute
   z-index: 10
   font-size: 0.85em
-  bottom: -4.5em
+  bottom: -5em
   left: 0.975em
   overflow: visible
   white-space: nowrap
@@ -140,12 +140,12 @@ ul
   background-color: $dodger-blue
 
 .grey-5
-  background-color: $grey-5
+  background-color: $grey-6
 
 .vslider
   position: relative
-  top: -9px
-  height: 7px
+  top: -12px
+  height: 13px
   border-bottom: 2px solid $white
   cursor: move
   border-top-left-radius: 3px
@@ -153,6 +153,8 @@ ul
   background: $grey-3
 
 .vslider:hover
+  background: $white
+.vslider-hover
   background: $white
 
 .currentAbility
@@ -162,9 +164,10 @@ ul
 .remove-button
   position: absolute
   z-index: 10
+  padding: 5px
   font-size: 0.85em
-  bottom: -2.5em
-  left: 0.15em
+  bottom: -3em
+  left: 0.165em
   overflow: visible
   cursor: pointer
 
@@ -179,4 +182,8 @@ ul
   border-radius: 4px
 
 
-@media only screen and (-webkit-device-pixel-ratio: 1.5), only screen and (-webkit-device-pixel-ratio: 1)
+@media only screen and (max-width: 600px)
+  .nav li
+    width: 100%
+  h2
+    font-size: 1.25em

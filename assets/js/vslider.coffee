@@ -2,6 +2,7 @@
 # Version: alpha 1.0
 # Author: Pablo Karlsson
 # Git-Hub: https://github.com/PabloK
+# Dependancies: Jquery, Jquerymobile
 (($) ->
   $.fn.vSlider = (arg={}) ->
 
@@ -13,7 +14,6 @@
 
     # Mobile version
     $(document).bind('vmouseup',()->
-
       container.unbind('vmousemove')
     )
     
@@ -66,13 +66,13 @@
 
           diagram.height(newHeight)
 
-        vSlider.bind('vmousedown',()->
+        vSlider.bind('vmousedown',(event)->
           # Set starting position of mouse 
-          currentPosition = window.event.clientY
-          container.bind('vmousemove',()->
-            deltaY = currentPosition - window.event.clientY
+          startPosition = event.pageY
+          container.bind('vmousemove',(event)->
+            deltaY = startPosition - event.pageY
             unless deltaY == 0
-              currentPosition = window.event.clientY
+              startPosition = event.pageY
               diagram.resize(deltaY,argMaxHeight,argMinHeight)
               # TODO perhaps update hidden form field
           )

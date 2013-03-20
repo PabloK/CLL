@@ -18,6 +18,12 @@
       $(this).popover('hide');
     });
   });
+- if @diagram
+  :javascript
+    $(document).ready(function(){
+      $.vmouse.moveDistanceThreshold = 2
+      $(".diagram-area")[0].addEventListener('touchmove', function(e){ e.preventDefault(); });
+    });
 -if @message
   :javascript
     $(document).ready(function(){

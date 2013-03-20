@@ -6,13 +6,13 @@ require 'dm-migrations'
 
 desc "Recreate database from DataMapper model"
 task :migrate do
-  DataMapper.finalize.auto_migrate!   
+  DataMapper.auto_migrate!   
   puts "[rake]: Database has been rebuilt."
 end
 
 desc "Upgrade database from DataMapper model"
 task :upgrade do
-  DataMapper.finalize.auto_upgrade!   
+  DataMapper.auto_upgrade!   
   puts "[rake]: Database has been upgraded."
 end
 

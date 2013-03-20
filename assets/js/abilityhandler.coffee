@@ -27,7 +27,8 @@ class AbilityHandler
     # Initiate a new slider 
     initSlider()
     abilityHandler = this
-    $(".diagram-area").find(".remove-button").last().click(()->
+    
+    $(".diagram-area").find(".remove-button").last().bind('vclick',()->
       abilityHandler.removeAbility(ability)
       $(this).parent().remove()
     )
@@ -99,7 +100,6 @@ $(document).ready ->
     )
 
   auto.on "autocompleteselect", (event, ui) ->
-    event.preventDefault
     if typeof (ui) isnt "undefined"
       ability = ui.item.value.toLowerCase()
     else
