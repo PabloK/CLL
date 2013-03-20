@@ -18,7 +18,7 @@ class ConsultantTrackController < ProtectedController
       new_consultant_track.name = @consultant_track
 
       if new_consultant_track.save
-        modal({:heading => "Nytt Konsultspår", :body => "Konsultspåret #{@consultant_track} har sparats."})
+        modal({:heading => "Nytt Konsultspår", :body => "Konsultspåret #{@consultant_track} har lagts till."})
         redirect '/admin/consultant_track/list'
       end
 

@@ -18,7 +18,7 @@ class AreaController < ProtectedController
       new_area.name = @area
 
       if new_area.save
-        modal({:heading => "Nytt Kompetensområde", :body => "Kompetensområdet #{@area} har sparats."})
+        modal({:heading => "Nytt Kompetensområde", :body => "Kompetensområdet #{@area} har lagts till."})
         redirect '/admin/area/list'
       end
 
