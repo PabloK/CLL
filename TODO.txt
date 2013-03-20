@@ -3,3 +3,4 @@ Current issues
 #1 Windows phone has issues with viewport directive
 #2 layout has some issues on telephones portrait & landscape
 #3 Sideway sliding has problems on ios & android
+#4 Check if the bug with entering # char in the ability field is still there

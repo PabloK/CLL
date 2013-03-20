@@ -67,6 +67,7 @@ ul
   font-weight: bold
 
 .diagram-holder
+  position: relative
   -moz-user-select: -moz-none
   -khtml-user-select: none
   -webkit-user-select: none
@@ -79,10 +80,11 @@ ul
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
   padding: 1.5em
   height: 28em
+  overflow: hidden
 
 .diagram-surface
-  height: 28em
-  overflow-y: auto
+  height: 26em
+  overflow: hidden
 
 .diagram-area
   height: 16em
@@ -97,6 +99,56 @@ ul
   margin: 0 0.25em
   -webkit-box-shadow: 5px 0px 0px 0px rgba(0, 0, 0, 0.1)
   box-shadow: 5px 0px 0px 0px rgba(0, 0, 0, 0.1)
+
+.arrows
+  position: absolute 
+  width: 100%
+  bottom: 0px
+  left: 0px
+  z-index: 12
+
+.scroller
+  position: absolute 
+  z-index: 10
+  width: 100%
+  bottom: 0px
+  left: 0px
+
+.left-arrow
+  float: left
+
+.scroll-comming, .scroll-past, .scroll-now, .scroll-arrow
+  height: 1.5em
+
+.scroll-comming, .scroll-past, .scroll-now
+  float: left
+
+.scroll-comming
+  background-color: $grey-c
+  width: 90%
+
+.scroll-now
+  background-color: $grey-5
+  width: 10%
+
+.scroll-past
+  background-color: $grey-c
+  width: 0%
+
+.icon-chevron-right, .icon-chevron-left
+  margin: 0.25em
+
+.scroll-arrow
+  width: 3.5%
+  background-color: $grey-9
+
+.scroll-arrow:hover
+  width: 3.5%
+  background-color: $white
+  cursor: pointer
+
+.right-arrow
+  float: right
 
 .combination-diagram
   white-space: nowrap
@@ -175,7 +227,7 @@ ul
   cursor: pointer
 
 .remove-button:hover
-  background-color: #FF0000
+  background-color: $red
 
 .add 
   display: inline-block
@@ -185,6 +237,7 @@ ul
   border-radius: 4px
 
 .help
+  cursor: pointer
   display: inline-block
   float: left
   margin-right: 0.25em
