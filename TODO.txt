@@ -1,6 +1,5 @@
 Current issues
 
-#1 Remove button no longer works on ios or android due to disabling default.
+#1 Windows phone has issues with viewport directive
 #2 layout has some issues on telephones portrait & landscape
 #3 Sideway sliding has problems on ios & android
-#4 Hover class addition has problems on android

@@ -10,11 +10,17 @@
 %script{:type => "text/javascript", :src  => "/js/abilityhandler.js"}
 %script{:type => "text/javascript", :src  => "/js/vslider.js"}
 
+-# TODO move general java code to a common lib
+
 :javascript
   $(document).ready(function(){
-    $('.help').popover('hide');
-    $('.help').click(function (){
-      $(this)[0].popover('show');
+    $('.help').popover();
+    $('.help').bind('vclick', function (e) {
+      $('.help').not(this).popover('hide');
+      e.stopPropagation()
+    });
+    $('body').bind('vclick', function (e) {
+      $('.help').popover('hide');
     });
   });
 - if @diagram

@@ -11,6 +11,8 @@ body
   font-family: Arial, Sans-Serif
   background-image: url('/img/background.jpg')
   overflow: hidden
+  padding-top: 2em
+  padding-bottom: 2em
 
 li
   list-style: none
@@ -25,7 +27,6 @@ ul
   background-color: $grey-e
 
 #main-content
-  margin-top: 2em
   background-color: $white
   border-radius: 0.5em
   @include shadow($grey-5)
@@ -80,11 +81,11 @@ ul
   height: 28em
 
 .diagram-surface
-  height: 100%
+  height: 28em
   overflow-y: auto
 
 .diagram-area
-  height: 50%
+  height: 16em
   border-bottom: 2px solid $grey-c
   white-space: nowrap
   width: 5000px
@@ -121,8 +122,11 @@ ul
 
 .diagram-label
   cursor: default
+  transform: rotate(45deg)
   -webkit-transform: rotate(45deg)
   -moz-transform: rotate(45deg)
+  -ms-transform: rotate(45deg)
+  -o-transform: rotate(45deg)
   width: 0
   position: absolute
   z-index: 10
@@ -146,7 +150,7 @@ ul
   top: -12px
   height: 13px
   border-bottom: 2px solid $white
-  cursor: move
+  cursor: move 
   border-top-left-radius: 3px
   border-top-right-radius: 3px
   background: $grey-3
@@ -184,6 +188,9 @@ ul
   display: inline-block
   float: left
   margin-right: 0.25em
+
+@-ms-viewport
+  width: 600
 
 @media only screen and (max-width: 600px)
   .nav li
