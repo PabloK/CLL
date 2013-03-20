@@ -37,4 +37,11 @@ class MainController < ProtectedController
         halt 400
       end
     end
+
+    get '/message/:heading/:body' do
+      @message = {}
+      @message[:body] = params[:body]
+      @message[:heading] = params[:heading]
+      haml :message , :layout => false
+    end
 end

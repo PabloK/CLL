@@ -117,29 +117,26 @@ ul
 .left-arrow
   float: left
 
-.scroll-comming, .scroll-past, .scroll-now, .scroll-arrow
+.scroll-base, .scoll-location, .scroll-arrow
   height: 1.5em
 
-.scroll-comming, .scroll-past, .scroll-now
-  float: left
-
-.scroll-comming
+.scroll-base
   background-color: $grey-c
-  width: 90%
+  width: 100%
 
-.scroll-now
+.scroll-location
+  position: absolute
+  left: 1.5em
+  z-index: 11
+  height: 1.5em
   background-color: $grey-5
   width: 10%
-
-.scroll-past
-  background-color: $grey-c
-  width: 0%
 
 .icon-chevron-right, .icon-chevron-left
   margin: 0.25em
 
 .scroll-arrow
-  width: 3.5%
+  width: 1.5em
   background-color: $grey-9
 
 .scroll-arrow:hover
@@ -250,3 +247,4 @@ ul
     width: 100%
   h2
     font-size: 1.25em
+    

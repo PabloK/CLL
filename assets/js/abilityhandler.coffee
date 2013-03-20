@@ -56,6 +56,8 @@ class AbilityHandler
       ).done((ability) ->
         if ability isnt false
           parent.addAbility(ability.name)
+        else
+          showFormattedMessage("Fel","Förmågan måste vara mellan 3 och 32 tecken lång.")
       ).complete(() ->
         parent.resetField()
       ).error ->
