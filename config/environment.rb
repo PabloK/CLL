@@ -9,32 +9,35 @@ require 'uglifier'
 require 'json'
 
 class  Sinatra::Base
-  # Startup info
-  if ENV['RACK_ENV'] == 'development' 
+  
+  # Show the current server configuration on startup
+  if ENV['RACK_ENV']
     puts "[configuration] RACK_ENV : " + ENV['RACK_ENV']
   end
   
-  # Production settings for haml
+  # Settingup haml for quick render & no trace in production
   if ENV['RACK_ENV'] == 'production'
     set :haml, { :ugly => true }
     set :clean_trace, true
   end
 
-  # Global-variable configuration
+  # Loading global variables
   require './config/globals'
 
-  # View dir configuration
+  # Sets the standard dir in which haml looks for views
   set :views, File.dirname(__FILE__) + "/../views"
   
-  # Register session based flash
+  # Register session based flash, currently used for message delivery
   register Sinatra::Flash
 
 end
 
-# SQL logging settings
-if ENV['RACK_ENV'] == 'development'
+# Setup of logging for development & test
+if ENV['RACK_ENV'] == 'development' or ENV['RACK_ENV'] == 'test'
   DataMapper::Logger.new($stdout, :debug)
 end
+
+# Setup of different databases for production, development & test
 if ENV['RACK_ENV'] == 'test'
   DataMapper::setup(:default, ENV['TESTDATABASE_URL']) 
 else

@@ -1,12 +1,22 @@
 # encoding: utf-8
+
+# Author: Pablo Karlsson
+# This is the servers main configuration & startup file
+# All sub application parts are decalred here. This file
+# Also handles the menu & caching settings
+
 require './config/environment'
 require './config/helpers'
 require './config/controller_types'
 require './lib/controllers'
+require './lib/models'
 
 map '/' do
 
-  # Rack caching
+  # Configure session settings
+  use Rack::Session::Cookie, :secret => ENV['SESSION_SECRETE'], :expire_after => 30 * 3600
+
+  # Paths for static content with caching settings
   use Rack::Static, {
     :root => "public",
     :urls => ["/audio"],
@@ -29,10 +39,7 @@ map '/' do
     :cache_control => "public, max-age=81000"
   }
 
-  # Configure session settings
-  use Rack::Session::Cookie, :secret => ENV['SESSION_SECRETE'], :expire_after => 30 * 3600
-
-  # Configure menu
+  # Configuration for menu
   $MENU = []
   $MENU.push({:text => "Mina nycklar", :url => "/"})
   $MENU.push({:text => "Administrera", :url => "/admin"})
@@ -47,7 +54,7 @@ map '/' do
     end
   end
 
-  # Configuration of css and javascript compilation
+  # Paths fro css & javascript compilation
   map '/css' do
     run SassCssConverter
   end
@@ -56,15 +63,12 @@ map '/' do
     run CoffeeJsConverter
   end
   
-  # Standard paths
+  # Paths for Ajax calls and index
   map '/' do
     run MainController 
   end
 
-  # Admin path will house all the administrative paths
-
-  # TODO a good idea could be lifting the administrative specifics into an expanded Sinatra::Base class
-  # This would reduce duplication and be all ower awesome. How ever not prioritized atm.
+  # Admin path housing the administrative paths
   map '/admin' do
     map '/area' do
       run AreaController
