@@ -42,17 +42,8 @@ map '/' do
   # Configuration for menu
   $MENU = []
   $MENU.push({:text => "Mina nycklar", :url => "/"})
-  $MENU.push({:text => "Administrera", :url => "/admin"})
-  $MENU.push({:text => "Logga ut", :url => "/logout"})
-  
-  # Configuration for submenu helpers
-  class Sinatra::Base
-    def admin_menu
-      @submenu = []
-      @submenu.push({:text => "Kompetensområden", :url => "/admin/area/list"})
-      @submenu.push({:text => "Konsultspår", :url => "/admin/consultant_track/list"})
-    end
-  end
+  $MENU.push({:text => "Kompetensområden", :url => "/admin/area/list"})
+  $MENU.push({:text => "Konsultspår", :url => "/admin/consultant_track/list"})
 
   # Paths fro css & javascript compilation
   map '/css' do

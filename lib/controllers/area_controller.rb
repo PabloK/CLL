@@ -3,7 +3,6 @@ class AreaController < ProtectedController
   before do
     @area = nil
     @message = flash[:message]
-    admin_menu
   end
 
   get '/' do

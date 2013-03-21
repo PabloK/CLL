@@ -2,7 +2,6 @@
 class AdminController < ProtectedController
   before do
     @message = flash[:message]
-    admin_menu
   end
 
   get '/' do

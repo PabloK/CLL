@@ -3,7 +3,6 @@ class ConsultantTrackController < ProtectedController
   before do
     @consultant_track = nil
     @message = flash[:message]
-    admin_menu
   end
 
   get '/' do

@@ -29,6 +29,7 @@ base_abilities:
         abilities: 
           - programmering
           - testning
+          - kravspecning
     - name: logistik
       areas: 
       - name: logistik

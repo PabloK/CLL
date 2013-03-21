@@ -10,14 +10,13 @@
 body 
   font-family: Arial, Sans-Serif
   background-image: url('/img/background.jpg')
-  overflow: hidden
-  padding-top: 2em
+  overflow-y: scroll
   padding-bottom: 2em
 
-li
+.odd, .even
   list-style: none
 
-ul
+ul.item-list
   margin: 1em 0
 
 .odd , .even
@@ -30,6 +29,7 @@ ul
   background-color: $white
   border-radius: 0.5em
   @include shadow($grey-5)
+  margin-top: 2em
 
 #padded
   padding: 2em
@@ -239,12 +239,12 @@ ul
   float: left
   margin-right: 0.25em
 
-@-ms-viewport
-  width: 600
-
-@media only screen and (max-width: 600px)
-  .nav li
-    width: 100%
-  h2
-    font-size: 1.25em
-    
+.navbar .btn, .navbar .btn-navbar, .navbar .btn:hover, .navbar .btn-navbar:hover
+  background-color: rgba(0,0,0,0)
+  background-image: none
+  border-radius: none
+  border: none
+  
+#header .navbar, #header .navbar .navbar-inner, .navbar, .navbar-inner
+  border-top-left-radius: 0
+  border-top-right-radius: 0
