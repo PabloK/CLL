@@ -1,6 +1,6 @@
-Current issues
-
-#1 Windows phone has issues with viewport directive
-#2 layout has some issues on telephones portrait & landscape
-#3 Sideway sliding has problems on ios & android
-#4 Check if the bug with entering # char in the ability field is still there
+# Layout has some issues on telephones portrait & landscape, Tabs are needed to solve this
+# Bug when removing ability slider on iOs 2 items are removed
+# Sideway sliding has problems on ios & android
+# Look over shadows, roundings
+# remove the min char limit
+# Windows phone has issues with viewport directive

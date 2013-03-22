@@ -11,11 +11,10 @@ class AbilityHandler
   # TODO handle colors and id's aswell
   addAbility: (ability) ->
     @usedAbilitys.push ability
-    # TODO this could perhaps be a view
     new_diagram = "
     <div class=\"combination-diagram\">
       <div class=\"diagram currentAbility cornflower\"></div>
-      <div class=\"diagram targetAbility grey-5\"></div>
+      <div class=\"diagram targetAbility grey-6\"></div>
       <div class=\"remove-button label label-important\">
         <div class=\"icon-remove icon-white\"></div>
       </div>

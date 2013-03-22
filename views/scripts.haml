@@ -14,6 +14,7 @@
 
 :javascript
   $(document).ready(function(){
+    // Enable popovers
     $('.help').popover();
     $('.help').bind('vclick', function (e) {
       $('.help').not(this).popover('hide');
@@ -22,6 +23,18 @@
     $('body').bind('vclick', function (e) {
       $('.help').popover('hide');
     });
+
+    // Height to tab conversion for short screens
+    var inTabState = false 
+    window.onresize = function(){
+      if ($("#main-content").width() <= 800) {
+
+        inTabState = true
+      } else {
+
+        inTabState = false
+      }
+    }
   });
 - if @diagram
   :javascript
