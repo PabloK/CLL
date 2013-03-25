@@ -31,9 +31,8 @@ class  Sinatra::Base
   register Sinatra::Flash
 
 end
-
 # Setup of logging for development & test
-if ENV['RACK_ENV'] == 'development' or ENV['RACK_ENV'] == 'test'
+if ENV['RACK_ENV'] == 'development' or (ENV['RACK_ENV'] == 'test' and ENV['DEBUG'] == "ON")
   DataMapper::Logger.new($stdout, :debug)
 end
 

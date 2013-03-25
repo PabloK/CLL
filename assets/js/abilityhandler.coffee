@@ -70,6 +70,8 @@ class AbilityHandler
         parent.resetField()
       ).error ->
         console.log "The server is not responding"
+    else
+      showFormattedMessage("Fel", "Du har redan lagt till denna förmåga.")
 
 $(document).ready ->
   
