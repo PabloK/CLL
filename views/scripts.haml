@@ -1,4 +1,4 @@
-/Javascript includes
+//Javascript includes
 %script{:type => "text/javascript", :src  => "/external/js/jquery-1.9.1.min.js"}
 -#%script{:type => "text/javascript", :src =>  "/external/js/d3.v3.min.js" }
 %script{:type => "text/javascript", :src  => "/external/js/jquery-ui-1.10.0.custom.min.js"}
@@ -13,10 +13,12 @@
 -# TODO move general java code to a common lib
 
 :javascript
+  // Translates a non tabbed page into a tabbed page
   function switchToTabs() {
     diagramContent = $("#diagram").removeClass("span7").addClass("tab-pane");
     diagramContent = $("#diagram-control").removeClass("span5").addClass("tab-pane");
   }
+  // Translates a tabbed page to a non tabbed page
   function switchFromTabs() {
     diagramContent = $("#diagram").addClass("span7").removeClass("tab-pane");
     diagramContent = $("#diagram-control").addClass("span5").removeClass("tab-pane");
@@ -32,6 +34,8 @@
       $('.help').popover('hide');
     });
     
+    // Function to consider if the window height should be split in to tabs for
+    // better display
     function considerTabs(){
       if ($("body").width() <= 800) { if (!inTabState) {
           switchToTabs();
@@ -51,12 +55,15 @@
     considerTabs();
 
   });
+
+-# load diagram listners if the diagram variable is set
 - if @diagram
   :javascript
     $(document).ready(function(){
       $.vmouse.moveDistanceThreshold = 2
-      $(".diagram-area")[0].addEventListener('touchmove', function(e){ e.preventDefault(); });
     });
+
+-# load message scripts fi there is a message in the message var
 -if @message
   :javascript
     $(document).ready(function(){

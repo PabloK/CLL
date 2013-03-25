@@ -1,3 +1,2 @@
 # Sideway sliding has problems on ios & android
-# Look over shadows, roundings
 # Increase testing
