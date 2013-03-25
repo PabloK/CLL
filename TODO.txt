@@ -2,6 +2,4 @@
 # Bug when removing ability slider on iOs 2 items are removed
 # Sideway sliding has problems on ios & android
 # Look over shadows, roundings
-# remove the min char limit
-# Windows phone has issues with viewport directive
 # Increase testing

@@ -1,12 +1,21 @@
 class AbilityHandler
   constructor: ->
     @usedAbilitys = []
+    @removeTimerOn = false
     parent = this
     $("#area").change ->
       parent.resetField()
 
   isAbilityUsed: (ability)->
     return $.inArray(ability, @usedAbilitys) isnt -1
+
+  removeTimer: ->
+    returnValue = @removeTimerOn
+    @removeTimerOn = true
+    abilityHandler = this
+    setTimeout((-> abilityHandler.removeTimerOn = false),1000)
+    console.log(returnValue)
+    return !returnValue
 
   # TODO handle colors and id's aswell
   addAbility: (ability) ->
@@ -28,8 +37,9 @@ class AbilityHandler
     abilityHandler = this
     
     $(".diagram-area").find(".remove-button").last().bind('vclick',()->
-      abilityHandler.removeAbility(ability)
-      $(this).parent().remove()
+      if abilityHandler.removeTimer()
+        abilityHandler.removeAbility(ability)
+        $(this).parent().remove()
     )
 
   removeAbility: (ability) ->
