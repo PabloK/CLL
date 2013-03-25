@@ -52,11 +52,12 @@ class AbilityHandler
         data:
           area: area
           ability: ability
-      ).done((ability) ->
-        if ability isnt false
-          parent.addAbility(ability.name)
+      ).done((response) ->
+        console.log(response)
+        if response["errors"].length > 0
+          showFormattedMessage("Fel", response["errors"][0] )
         else
-          showFormattedMessage("Fel","Förmågan måste vara mellan 3 och 32 tecken lång.")
+          parent.addAbility(response["ability"].name)
       ).complete(() ->
         parent.resetField()
       ).error ->

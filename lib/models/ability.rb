@@ -1,8 +1,11 @@
+#encoding: utf-8
 class Ability
   include DataMapper::Resource
 
   property :id, Serial, :key => true
-  property :name, String, :required => true
+  property :name, String, :required => true, :messages => {
+      :presence  =>"Förmågan kan inte enbart inehålla mellanslag."
+    }
 
   # A measurement of how much this ability is embraced
   property :number_of_inclusions, Integer, :required => true, :default => 1
@@ -12,10 +15,11 @@ class Ability
   property :number_of_complaints, Integer, :required => true, :default => 0
   property :ostracisity, Float, :required => true, :default => 0.0
   property :fondness, Float, :required => true, :default => 1.0
-  validates_length_of :name, :min => 3, :max => 32
-  
+  validates_length_of :name, :max => 48 , :message => "Förmågan får högst innehålla 48 tecken."
+
   has n, :areas, :through => Resource
   has n, :consultant_tracks, :through => Resource
+
 
   # Embrace the ability
   def embrace!
@@ -43,27 +47,28 @@ class Ability
 
   # Embrace or create the ability if it is used
   def self.use_ability(area ,ability)
-      return false if ability.length < 3 or ability.length > 32 
-      #TODO fix the problem with exists function
       # It does not check for abilities in areas but just abilites
       unless Ability.exists(ability)
-         new_ability = Ability.new
-         new_ability.name = ability
-         new_ability.areas << Area.get(area)
-         if new_ability and new_ability.save 
-           return new_ability
-         end
-        
+        used_ability = Ability.new
+        used_ability.name = ability
+        used_ability.areas << Area.get(area)
+        used_ability.save 
       else
-        current_ability = Ability.first(:name.like => ability)
-        if current_ability
-          current_ability.areas << Area.get(area)
-          current_ability.embrace!
-          return current_ability
+        used_ability = Ability.first(:name.like => ability)
+        if used_ability
+          used_ability.areas << Area.get(area)
+          used_ability.embrace!
         end
       end
+
+      if used_ability
+        errors = used_ability.errors.map{|error| error}
+      else
+        errors = []
+      end
+      # TODO used_ability does not always have data
+      return {:ability => used_ability, :errors => errors}
       
-    return false
   end
 
   def self.exists(ability)
@@ -75,7 +80,7 @@ class Ability
   end
 
   def name=(name)
-    super(name.downcase)
+    super(name.downcase.split.join(" "))
   end
 
   # Calculate the fondness of a ability

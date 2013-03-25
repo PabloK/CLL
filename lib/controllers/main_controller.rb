@@ -12,9 +12,9 @@ class MainController < ProtectedController
 
     post '/useAbility' do
       #TODO area is not an id
-      ability = Ability.use_ability(params[:area],params[:ability])
+      response = Ability.use_ability(params[:area],params[:ability])
       content_type 'application/json'
-      return ability.to_json 
+      return response.to_json 
     end
 
     post '/findAbility' do

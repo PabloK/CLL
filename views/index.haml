@@ -18,7 +18,7 @@
             %select#track{:name => "track", :tabindex => 1}
               -@consultant_tracks.each do |track|
                 %option{:value => track.id}=track.name
-            %button#add_track.btn{:type => "button"} 
+            %button#add_track.btn{:type => "button", :tabindex => 1} 
               &nbsp;
               .icon-plus
         %hr
@@ -36,7 +36,7 @@
           %label{:for => "ability"} Förmåga:
           %div.input-append
             %input#ability{:type => "text", :name => "ability", :tabindex => 3}    
-            %button#add_track.btn{:type => "submit"} 
+            %button.btn{:type => "submit" , :tabindex => 3 } 
               &nbsp;
               .icon-plus
     

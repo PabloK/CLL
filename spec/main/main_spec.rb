@@ -1,3 +1,4 @@
+#encofding: utf-8
 # Test setup
 require './spec/spec_helper'
 
@@ -11,7 +12,7 @@ describe "Layout", :type => :request do
   it 'should link to other pages when a link is pressed' do
     visit '/'
     first = page.html
-    click_link 'Administrera'
+    click_link 'Konsult'
     second = page.html
     expect(second).to_not eq(first)
   end 

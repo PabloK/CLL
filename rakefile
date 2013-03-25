@@ -61,7 +61,7 @@ task :autopopulate do
 
       # Abilities in an area to each track
       area['abilities'].each do |ability|
-        current_ability = Ability.use_ability(current_area.id, ability)
+        current_ability = Ability.use_ability(current_area.id, ability)[:ability]
         next unless current_ability 
         next if current_track.has_ability?(current_ability.id)
         puts "[rake]: Adding ability #{current_ability.name} in #{current_area.name} to track #{current_track.name}"

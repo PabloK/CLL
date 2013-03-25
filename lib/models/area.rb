@@ -1,3 +1,4 @@
+#encoding: utf-8
 class Area
   include DataMapper::Resource
   property :id, Serial, :key => true
