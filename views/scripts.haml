@@ -13,6 +13,14 @@
 -# TODO move general java code to a common lib
 
 :javascript
+  function switchToTabs() {
+    diagramContent = $("#diagram").removeClass("span7").addClass("tab-pane");
+    diagramContent = $("#diagram-control").removeClass("span5").addClass("tab-pane");
+  }
+  function switchFromTabs() {
+    diagramContent = $("#diagram").addClass("span7").removeClass("tab-pane");
+    diagramContent = $("#diagram-control").addClass("span5").removeClass("tab-pane");
+  }
   $(document).ready(function(){
     // Enable popovers
     $('.help').popover();
@@ -23,18 +31,25 @@
     $('body').bind('vclick', function (e) {
       $('.help').popover('hide');
     });
-
-    // Height to tab conversion for short screens
-    var inTabState = false 
-    window.onresize = function(){
-      if ($("#main-content").width() <= 800) {
-
-        inTabState = true
+    
+    function considerTabs(){
+      if ($("#main-content").width() <= 800) { if (!inTabState) {
+          switchToTabs();
+        }
+        inTabState = true;
       } else {
-
-        inTabState = false
+        if (inTabState) {
+          switchFromTabs();
+        }
+        inTabState = false;
       }
     }
+
+    // Height to tab conversion for short screens
+    var inTabState = false
+    window.onresize = function () {considerTabs();}
+    considerTabs();
+
   });
 - if @diagram
   :javascript
