@@ -1,2 +1,1 @@
-# Sideway sliding has problems on ios & android
 # Increase testing
