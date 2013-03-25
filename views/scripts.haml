@@ -33,7 +33,7 @@
     });
     
     function considerTabs(){
-      if ($("#main-content").width() <= 800) { if (!inTabState) {
+      if ($("body").width() <= 800) { if (!inTabState) {
           switchToTabs();
         }
         inTabState = true;
