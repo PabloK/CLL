@@ -48,10 +48,58 @@ describe "Layout", :type => :request do
       page.should_not have_selector ".diagram"
     end 
     
-    it 'Given an area exists, when you add a custom ability there should be a new diagram' do
+    it 'Given an area exists, when you fill in a custom ability and click add a new diagram should appear' do
       new_area = Area.new 
       new_area.name = "area_1"
       new_area.save
+       
+      visit '/'
+      fill_in "ability", :with => "some_ability"
+      click_button "add_ability"
+      page.should have_selector(".diagram")
+      page.should have_content("some_ability")
+
+    end
+
+    it 'Given a diagram exists when you press remove the diagram should disappear' do
+      new_area = Area.new 
+      new_area.name = "area_1"
+      new_area.save
+       
+      visit '/'
+      fill_in "ability", :with => "some_ability"
+      click_button "add_ability"
+      page.should have_selector(".remove-button")
+      page.execute_script("$('.remove-button').click()")
+      page.should_not have_selector(".diagram")
+      page.should_not have_content("some_ability")
+
+    end
+
+    it 'When have no text as ability name and press add an error message should appear' do
+      new_area = Area.new 
+      new_area.name = "area_1"
+      new_area.save
+       
+      visit '/'
+      click_button "add_ability"
+      page.should_not have_selector(".diagram")
+      page.should have_content("Fel")
+
+    end
+
+    it 'If you add the same ability twice there an error message should appear' do
+      new_area = Area.new 
+      new_area.name = "area_1"
+      new_area.save
+       
+      visit '/'
+      fill_in "ability", :with => "some_ability"
+      click_button "add_ability"
+      page.should have_selector(".diagram") # Allows the js to complete before the next statement
+      fill_in "ability", :with => "some_ability"
+      click_button "add_ability"
+      page.should have_content("Fel")
 
     end
 
