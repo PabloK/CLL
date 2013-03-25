@@ -14,7 +14,6 @@ class AbilityHandler
     @removeTimerOn = true
     abilityHandler = this
     setTimeout((-> abilityHandler.removeTimerOn = false),1000)
-    console.log(returnValue)
     return !returnValue
 
   # TODO handle colors and id's aswell
@@ -63,7 +62,6 @@ class AbilityHandler
           area: area
           ability: ability
       ).done((response) ->
-        console.log(response)
         if response["errors"].length > 0
           showFormattedMessage("Fel", response["errors"][0] )
         else
