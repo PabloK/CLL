@@ -20,6 +20,21 @@ desc "Auto populate with static data"
 task :autopopulate do
   default = YAML::load_file(File.open('config/default_data.yml'))
 
+  default['users'].each do |user| 
+    unless User.first(:email => user['email'].downcase)
+      new_user = User.new 
+      new_user.email = user['email']
+      new_user.password = ENV['CLL_PASS']
+      if new_user.save
+        puts "[rake]: Created User with email #{user['email']}" 
+      else
+        new_user.errors.each do |e|
+          puts "[rake]: Error when adding user: #{e}" 
+        end
+      end
+    end
+  end
+
   # Populate database with default areas
   default['areas'].each do |area|
     unless Area.exists(area)

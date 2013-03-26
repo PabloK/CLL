@@ -1,3 +1,5 @@
+# This file contains default data for the database and is loaded into the system by
+# caliing `rake migrate` followed by `rake autopopulate`
 areas:
   - mjukvaru utveckling
   - mekanik
@@ -45,3 +47,8 @@ base_abilities:
       - name: konstruktion 
         abilities: 
           - cad
+
+users:
+  - email: Pablo.Karlsson@gmail.com
+  - email: Niclas.Fock@combitech.se
+  - email: Pernilla.Forsell@combitech.se

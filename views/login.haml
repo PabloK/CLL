@@ -1,5 +1,9 @@
-%form{:method => "POST", :action => '/login'}
-  %label{:for => "password"} Password
-  %div.input-append
-    %input{:name => "password", :type => "password"}
-    %button#add_track.btn{:type => "submit"} Logga in
+%h2 Inloggning
+%form{:method => "post", :action => '/login'}
+  %input.hidden{:type => "submit"}
+  %label Email: 
+  %input{:name => "email", :type => "text"}
+  %label Password: 
+  %input{:type => "password", :name => "password"}
+  %div
+    %button.btn{:type => "submit"} Logga in

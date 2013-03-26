@@ -2,6 +2,7 @@
 class MainController < ProtectedController
     before do
       @diagram = true
+      @message = flash[:message]
     end
 
     get '/' do
