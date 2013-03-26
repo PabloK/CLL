@@ -3,7 +3,7 @@ class Ability
   include DataMapper::Resource
 
   property :id, Serial, :key => true
-  property :name, String, :required => true, :messages => {
+  property :name, String, :unique => true, :required => true, :messages => {
       :presence  =>"Förmågan kan inte enbart inehålla mellanslag."
     }
 
