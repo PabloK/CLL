@@ -17,10 +17,12 @@ initSlider = () ->
 
 # Helper function for calculating the values of the sliders
 getSliderValues = () ->
+  values = []
   $(".combination-diagram").each(()->
     maxHeight = $(this).parent().height()
     targetAbility = $(this).children(".targetAbility").height() - sliderHeight
     currentAbility = $(this).children(".currentAbility").height()
+    name = $(this).children(".diagram-label").text()
     if maxHeight != 0
       targetAbilityPercent = 100 * (targetAbility / (maxHeight - sliderHeight*2))
     else
@@ -29,10 +31,9 @@ getSliderValues = () ->
       currentAbilityPercent = 100 * (currentAbility / (targetAbility))
     else
       currentAbilityPercent = 0
-    console.log([targetAbilityPercent, currentAbilityPercent])
-
+    values.push({name: name,target: targetAbilityPercent, current: currentAbilityPercent})
   )
-
+  return values
 $(document).ready(()->
   initSlider()
 )
