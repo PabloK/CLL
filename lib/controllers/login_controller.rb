@@ -9,11 +9,14 @@ class LoginController < Sinatra::Base
   post '/' do
     user = User.first(:email => params[:email].downcase)
     if user and user.password == params[:password] 
-      login(user)
-      modal({:heading => "Inloggningen lycakdes", :body => "Du är nu inloggad"})
-      redirect '/'
+      if user.new_lookup!
+        session[:user]=user.id
+        session[:lookup]=user.lookup
+        modal({:heading => "Inloggningen lycakdes", :body => "Du är nu inloggad"})
+        redirect '/'
+      end
     end
-     
+
     modal({:heading => "Inloggning misslyckades" ,:body => "Användaren kunde inte hittas i våra system, eller så angavs ett felaktigt lösenord."})
     redirect '/login'
   end

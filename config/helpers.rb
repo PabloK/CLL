@@ -14,23 +14,15 @@ class  Sinatra::Base
   def lookup_user
     if session[:user]
       @user = User.get(session[:user])
-      if @user == nil or not @user.valid?(session[:lookup])
+      if @user == nil or not @user.lookup_valid?(session[:lookup])
         session.delete(:user)
         session.delete(:lookup)
-        halt 404
+        modal({:heading => "Felaktig Session" ,:body => "Din session har blivit korrupt och du loggas nu ut."})
+        redirect '/login'
       end
+      return
     end
-  end
-
-  # This helper is called to login the user
-  def login(user)
-      if user.new_lookup!
-        session[:user]=user.id
-        session[:lookup]=user.lookup
-        return
-      end
-      
-      redirect '/login'
+    redirect '/login'
   end
 end
 
