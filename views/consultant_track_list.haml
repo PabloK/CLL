@@ -4,4 +4,4 @@
   %ul.item-list
     -@consultant_tracks.each do |consultant_track|
       %li{:class => cycle('odd','even')}=consultant_track.name
-  %button.btn{:type => "link", :onClick => "window.location.href='/admin/consultant_track'"} Lägg till kosultspår
+  %button.btn{:type => "link", :onClick => "window.location.href='/admin/consultant_track'", :tabindex => 1} Lägg till kosultspår

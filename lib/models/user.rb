@@ -7,11 +7,13 @@ class User
   include BCrypt
   property :id,             Serial
   property :firstname,      String
-  property :lastname,      String
+  property :lastname,       String
   property :email,          String,   :required => true, :unique => true
   property :password_hash,  String,   :required => true, :lazy => true
   property :lookup,         String,   :lazy => false
   property :recover_key,    String,   :lazy => false
+  
+  has n, :ability_keys, :through => Resource
   
   validates_format_of :email , :as => /^.*@.*\..*{3,}$/i, :message => "Email adressen är felaktig."
   validates_length_of :email , :within => 5..250, :message => "Email adressen bör vara mellan 5 och 250 tecken lång."
