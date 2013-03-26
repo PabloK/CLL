@@ -41,7 +41,7 @@ map '/' do
 
   # Configuration for menu
   $MENU = []
-  $MENU.push({:text => "Mina nycklar", :url => "/"})
+  $MENU.push({:text => "Mina nycklar", :url => "/ability_key/key_list"})
   $MENU.push({:text => "Kompetensområden", :url => "/admin/area/list"})
   $MENU.push({:text => "Konsultspår", :url => "/admin/consultant_track/list"})
 
@@ -57,6 +57,10 @@ map '/' do
   # Paths for Ajax calls and index
   map '/' do
     run MainController 
+  end
+
+  map '/ability_key' do
+    run AbilityKeyController
   end
 
   # Admin path housing the administrative paths

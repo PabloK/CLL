@@ -16,6 +16,7 @@ initSlider = () ->
   })
 
 # Helper function for calculating the values of the sliders
+# TODO perhaps move this to the ability handler?
 getSliderValues = () ->
   values = []
   $(".combination-diagram").each(()->
@@ -33,7 +34,22 @@ getSliderValues = () ->
       currentAbilityPercent = 0
     values.push({name: name,target: targetAbilityPercent, current: currentAbilityPercent})
   )
+  console.log(values)
   return values
 $(document).ready(()->
   initSlider()
 )
+
+saveKey = () ->
+  $.ajax(
+    url: "/saveAbiliyKey"
+    type: "POST"
+    dataType: "json"
+    data:
+      abilities: getSliderValues(),
+      name: $("#name").val()
+  ).done((data) ->
+    showFormattedMessage("Sparat", "Förmåge nyckeln har sparats")
+  ).error( ->
+    showFormattedMessage("Fel", "Det gick inte att spara nyckeln, pröva igen.")
+  )

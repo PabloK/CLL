@@ -19,6 +19,7 @@ class Ability
 
   has n, :areas, :through => Resource
   has n, :consultant_tracks, :through => Resource
+  has n, :ability_sliders, :through => Resource
 
 
   # Embrace the ability
