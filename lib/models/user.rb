@@ -13,7 +13,7 @@ class User
   property :lookup,         String,   :lazy => false
   property :recover_key,    String,   :lazy => false
   
-  has n, :ability_keys, :through => Resource
+  has n, :ability_keys, :through => Resource, :constraint => :destroy
   
   validates_format_of :email , :as => /^.*@.*\..*{3,}$/i, :message => "Email adressen är felaktig."
   validates_length_of :email , :within => 5..250, :message => "Email adressen bör vara mellan 5 och 250 tecken lång."

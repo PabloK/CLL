@@ -6,5 +6,5 @@ class AbilityKey
   property :edited,         DateTime, :required => true, :lazy => false
   property :name,           String, :required => true , :lazy => false
 
-  has n, :ability_sliders, :through => Resource
+  has n, :ability_sliders, :through => Resource, :constraint => :destroy
 end
