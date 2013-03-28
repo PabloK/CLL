@@ -21,23 +21,23 @@ För att få igång system:
 
 Kommandon
 ===
-rake migrate # Migrerar databasen
-rake autopopulate # Populerar databasen med defaultdata från config/default_data.yaml
-rake spec # Kör tester !!! Kräver att en testdatabas konfigurerats !!!
+* rake migrate # Migrerar databasen
+* rake autopopulate # Populerar databasen med defaultdata från config/default_data.yaml
+* rake spec # Kör tester !!! Kräver att en testdatabas konfigurerats !!!
 
 Projekt struktur
 ===
-assets # Javascript och css som skall kompileras från coffeescript eller SASS innan användning.
-config # Allmän konfiguration
-config.ru # Denna fil är projektets huvud fil och inkluderar allt annat den inehåller configuration av routes till de olika kontrollerarna
-Gemfile # Listar biblotek som behövs av systemet. Används av bundler
-Gemfile.lock # Listar nuvarande versioner på systemets biblotek. Används av bundler
-lib # Denna mapp inehåller projektets modeller och kontrollers 
-public # Statiska bilder, javascript och css hamnar här
-rakefile # Definierar rake kommandon som kan köras i skalet
-spec # Testfiler hamnar i undermappar till denna mappen. Dessa test körs med hjälp av spec_helper och rake.
-TODO # Enkelt issuehanterings system
-views # Html vyer hamnar här dessa är skrivna i templatespråket haml
+* assets # Javascript och css som skall kompileras från coffeescript eller SASS innan användning.
+* config # Allmän konfiguration
+* config.ru # Denna fil är projektets huvud fil och inkluderar allt annat den inehåller configuration av routes till de olika kontrollerarna
+* Gemfile # Listar biblotek som behövs av systemet. Används av bundler
+* Gemfile.lock # Listar nuvarande versioner på systemets biblotek. Används av bundler
+* lib # Denna mapp inehåller projektets modeller och kontrollers 
+* public # Statiska bilder, javascript och css hamnar här
+* rakefile # Definierar rake kommandon som kan köras i skalet
+* spec # Testfiler hamnar i undermappar till denna mappen. Dessa test körs med hjälp av spec_helper och rake.
+* TODO # Enkelt issuehanterings system
+* views # Html vyer hamnar här dessa är skrivna i templatespråket haml
 
 Projekt ansvariga
 ===
