@@ -3,7 +3,8 @@ CLL Kompetensnyckel demonstrator
 
 Detta är en demonstrator av hur ett verktyg för att synliggöra karriärvägar och förmågor inom ett konsultföretag kan se ut.
 
-=== Installation ===
+Installation
+====
 Systemet kan köras i de flesta ruby miljöer men är främst testat på linux under ruby 1.9.3 med ruby gems och bundler installerat. Systemet kräver också tillgång till en databas och är förkonfigurerat för posgresql, även om det går att konfigurera för exempelvis sqlite.
 Systemet kräver alltså att en databas finns i bakgrunden för konfigurerad.
 
