@@ -19,12 +19,14 @@ rake migrate # Migrerar databasen
 rake autopopulate # Populerar databasen med defaultdata från config/default_data.yaml
 rackup # Startar en server på den configurerade porten
 
-=== Kommandon ===
+Kommandon
+===
 rake migrate # Migrerar databasen
 rake autopopulate # Populerar databasen med defaultdata från config/default_data.yaml
 rake spec # Kör tester !!! Kräver att en testdatabas konfigurerats !!!
 
-=== Projekt struktur ===
+Projekt struktur
+===
 assets # Javascript och css som skall kompileras från coffeescript eller SASS innan användning.
 config # Allmän konfiguration
 config.ru # Denna fil är projektets huvud fil och inkluderar allt annat den inehåller configuration av routes till de olika kontrollerarna
@@ -37,6 +39,7 @@ spec # Testfiler hamnar i undermappar till denna mappen. Dessa test körs med hj
 TODO # Enkelt issuehanterings system
 views # Html vyer hamnar här dessa är skrivna i templatespråket haml
 
-===Projekt ansvariga===
+Projekt ansvariga
+===
 Pablo.Karlsson (Pablo.Karlsson@combitech.se)
 Niclas Fock (Niclas.Fock@combitech.se)
