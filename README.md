@@ -10,14 +10,14 @@ Systemet kräver alltså att en databas finns i bakgrunden för konfigurerad.
 
 För att få igång system:
 
-git clone https://github.com/PabloK/CLL.git # Gör en kopia av koden
-cd CLL
-bundle install # Installerar nödvändiga biblotek
-!!! Konfigurera miljövariabler exempel finns i config/bashrc.conf.example!!! 
-!!! Konfigurera en posgres databas !!!
-rake migrate # Migrerar databasen
-rake autopopulate # Populerar databasen med defaultdata från config/default_data.yaml
-rackup # Startar en server på den configurerade porten
+* git clone https://github.com/PabloK/CLL.git # Gör en kopia av koden
+* cd CLL
+* bundle install # Installerar nödvändiga biblotek
+* !!! Konfigurera miljövariabler exempel finns i config/bashrc.conf.example!!! 
+* !!! Konfigurera en posgres databas !!!
+* rake migrate # Migrerar databasen
+* rake autopopulate # Populerar databasen med defaultdata från config/default_data.yaml
+* rackup # Startar en server på den configurerade porten
 
 Kommandon
 ===
