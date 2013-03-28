@@ -3,7 +3,7 @@ CLL Kompetensnyckel demonstrator
 
 Detta är en demonstrator av hur ett verktyg för att synliggöra karriärvägar och förmågor inom ett konsultföretag kan se ut.
 
-===Installation===
+=== Installation===
 Systemet kan köras i de flesta ruby miljöer men är främst testat på linux under ruby 1.9.3 med ruby gems och bundler installerat. Systemet kräver också tillgång till en databas och är förkonfigurerat för posgresql, även om det går att konfigurera för exempelvis sqlite.
 Systemet kräver alltså att en databas finns i bakgrunden för konfigurerad.
 
@@ -18,12 +18,12 @@ rake migrate # Migrerar databasen
 rake autopopulate # Populerar databasen med defaultdata från config/default_data.yaml
 rackup # Startar en server på den configurerade porten
 
-===Kommandon===
+=== Kommandon===
 rake migrate # Migrerar databasen
 rake autopopulate # Populerar databasen med defaultdata från config/default_data.yaml
 rake spec # Kör tester !!! Kräver att en testdatabas konfigurerats !!!
 
-===Projekt struktur===
+=== Projekt struktur===
 assets # Javascript och css som skall kompileras från coffeescript eller SASS innan användning.
 config # Allmän konfiguration
 config.ru # Denna fil är projektets huvud fil och inkluderar allt annat den inehåller configuration av routes till de olika kontrollerarna
