@@ -36,7 +36,9 @@ Kommandon
 
 Projekt struktur
 ===
-* assets # Javascript och css som skall kompileras från coffeescript eller SASS innan användning.
+| File/Folder | Description |
+|-------------|-------------|
+| assets | Javascript och css som skall kompileras från coffeescript eller SASS innan användning. |
 * config # Allmän konfiguration
 * config.ru # Denna fil är projektets huvud fil och inkluderar allt annat den inehåller configuration av routes till de olika kontrollerarna
 * Gemfile # Listar biblotek som behövs av systemet. Används av bundler
