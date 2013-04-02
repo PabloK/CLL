@@ -1,4 +1,12 @@
 #encoding: utf-8
+
+# Filename: rakefile
+# Author: Pablo Karlsson (Pablo.Karlsson@combitech.se)
+#
+# Description:
+# This file defines common tasks that can be executed trough the shell
+# by calling rake <command>
+
 require 'bundler/setup'
 require './config/environment'
 require './lib/models'

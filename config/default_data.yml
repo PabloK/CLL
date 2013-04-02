@@ -1,5 +1,10 @@
-# This file contains default data for the database and is loaded into the system by
-# caliing `rake migrate` followed by `rake autopopulate`
+# Filename: default_data.yml
+# Author: Pablo Karlsson (Pablo.Karlsson@combitech.se)
+#
+# Description:
+# This file contains default data for autopopulating the database.
+# Autopopulation is done using the rake command rake autopopulate
+
 areas:
   - mjukvaru utveckling
   - mekanik
@@ -49,6 +54,6 @@ base_abilities:
           - cad
 
 users:
-  - email: Pablo.Karlsson@gmail.com
-  - email: Niclas.Fock@combitech.se
-  - email: Pernilla.Forsell@combitech.se
+  - email: pablo.karlsson@gmail.com
+  - email: niclas.fock@combitech.se
+  - email: pernilla.forsell@combitech.se

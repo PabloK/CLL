@@ -1,4 +1,13 @@
 #encoding: utf-8
+
+# Filename: spec_helper.rb
+# Author: Pablo Karlsson (Pablo.Karlsson@combitech.se)
+#
+# Description:
+# This file is a helper for the rakefile command rake spec.
+# The file resets the configured testdatabase, setsup a server and
+# executes the thests located in sub folders to the spec folder
+
 require 'haml'
 require 'rspec'
 require 'capybara/rspec'

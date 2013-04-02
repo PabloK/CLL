@@ -1,15 +1,19 @@
 # encoding: utf-8
 
-# Author: Pablo Karlsson
+# Filename: config.ru
+# Author: Pablo Karlsson (Pablo.Karlsson@combitech.se)
+#
+# Description:
 # This is the servers main configuration & startup file
-# All sub application parts are decalred here. This file
-# Also handles the menu & caching settings
+# All sub application parts, menu & caching settings are configured here.
 
+require './config/general'
 require './config/environment'
 require './config/helpers'
 require './config/controller_types'
 require './lib/controllers'
 require './lib/models'
+
 
 map '/' do
 

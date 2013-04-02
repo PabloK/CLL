@@ -61,6 +61,7 @@
   :javascript
     $(document).ready(function(){
       $.vmouse.moveDistanceThreshold = 2
+      $(".diagram-area")[0].addEventListener('touchmove', function(e){ e.preventDefault(); });
     });
 
 -# load message scripts fi there is a message in the message var

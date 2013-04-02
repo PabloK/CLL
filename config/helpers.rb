@@ -1,16 +1,29 @@
 # encoding: utf-8
-# Sinatra helpers
+
+# Filename: helpers.rb
+# Author: Pablo Karlsson (Pablo.Karlsson@combitech.se)
+#
+# Description:
+# This file adds helper functions to the Sinatra::Base class.
+# These functions are globaly available in the controllers
+# The file is split in two parts helpers for the controlers called Sinatra helpers
+# and helpers for haml rendering called Haml helpers
+
+# Opening Sinatra::Base to add helper functions
 class  Sinatra::Base
-  # Calling this function in the controller will make
-  # a message modal appear the next time the layout is rendered
+  
+  ###
+  # Sinatra Helpers
+  ###
+  
+  # When a controler calls this function a message modal will appear.
   def modal(message)
     @message = message
     @message =  haml :message, :layout => false
     flash[:message] = @message
   end
 
-  # This function is a helper that should be called to verify that
-  # the user is logedin.
+  # Verifies the lookup key of a user
   def lookup_user
     if session[:user]
       @user = User.get(session[:user])
@@ -24,12 +37,11 @@ class  Sinatra::Base
     end
     redirect '/login'
   end
-end
 
-# Haml helpers
-class Sinatra::Base
-  
-  # These functions are ment to simplify the usage of the Cycle class  
+  ### 
+  # Haml helpers
+  ###  
+
   def cycle(first_value, *values)
     if (values.last.instance_of? Hash)
       params = values.pop
@@ -58,7 +70,7 @@ class Sinatra::Base
     cycle.reset if cycle
   end
 
-  # This class is used to cycle between values during haml render
+  # This class is used to cycle between values during the redering of html from haml
   # It can for instance be used to create tables with alternating classes like .odd, .even
   class Cycle
     attr_reader :values
