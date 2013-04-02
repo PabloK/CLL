@@ -18,7 +18,8 @@ Det finns exempel på den configuration som krävs för att systemet skall hitta
 
 För att få igång system:
 
-```git clone https://github.com/PabloK/CLL.git # Gör en kopia av koden
+```bash
+git clone https://github.com/PabloK/CLL.git # Gör en kopia av koden
 cd CLL
 !!! Detta steg kan kräva att extra biblotek och kompilatorer installeras !!!
 bundle install # Installerar nödvändiga biblotek
@@ -26,17 +27,21 @@ bundle install # Installerar nödvändiga biblotek
 !!! Konfigurera miljövariabler exempel finns i config/bashrc.conf.example!!! 
 rake migrate # Migrerar databasen
 rake autopopulate # Populerar databasen med defaultdata från config/default_data.yaml
-rackup # Startar en server på den configurerade porten ```
+rackup # Startar en server på den configurerade porten 
+```
 
 Kommandon
 ===
-``` rake migrate # Migrerar databasen
-rake autopopulate # Populerar databasen med defaultdata från config/default_data.yaml
-rake spec # Kör tester !!! Kräver att en testdatabas konfigurerats !!!```
+
+| Kommando | Beskrivning |
+|-------------|-------------|
+| rake migrate | Migrerar databasen |
+| rake autopopulate | Populerar databasen med defaultdata från config/default_data.yaml |
+| rake spec | Kör tester !!! Kräver att en testdatabas konfigurerats !!! |
 
 Projekt struktur
 ===
-| File/Folder | Description |
+| Fil/Mapp | Beskrivning |
 |-------------|-------------|
 | assets | Javascript och css som skall kompileras från coffeescript eller SASS innan användning. |
 | config | Allmän konfiguration |$
