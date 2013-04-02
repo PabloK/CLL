@@ -21,10 +21,12 @@ För att få igång system:
 ```bash
 git clone https://github.com/PabloK/CLL.git # Gör en kopia av koden
 cd CLL
-!!! Detta steg kan kräva att extra biblotek och kompilatorer installeras !!!
+
+#!!! Detta steg kan kräva att extra biblotek och kompilatorer installeras !!!
 bundle install # Installerar nödvändiga biblotek
-!!! Installera och konfigurera posgres !!!
-!!! Konfigurera miljövariabler exempel finns i config/bashrc.conf.example!!! 
+
+#!!! Installera och konfigurera posgres !!!
+#!!! Konfigurera miljövariabler exempel finns i config/bashrc.conf.example!!! 
 rake migrate # Migrerar databasen
 rake autopopulate # Populerar databasen med defaultdata från config/default_data.yaml
 rackup # Startar en server på den configurerade porten 
