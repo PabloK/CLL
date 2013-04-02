@@ -32,6 +32,8 @@ rake autopopulate # Populerar databasen med defaultdata från config/default_dat
 rackup # Startar en server på den configurerade porten 
 ```
 
+Efter detta skall du kunna öppna localhost:9292 i din webläsare och se demonstratorn.
+
 Kommandon
 ===
 
@@ -58,5 +60,5 @@ Projekt struktur
 
 Projekt ansvariga
 ===
-Pablo.Karlsson (pablo.karlsson@combitech.se)
+Pablo Karlsson (pablo.karlsson@combitech.se)
 Niclas Fock (niclas.fock@combitech.se)
