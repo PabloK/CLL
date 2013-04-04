@@ -1,5 +1,5 @@
 sliderHeight = 15
-initSlider = () ->
+initSlider = (initialCurrentValue = 0,initialTargetValue = sliderHeight) ->
   $(".targetAbility").vSlider({
     argMinHeight : ((self) ->
       return self.siblings(".currentAbility").height() + sliderHeight
@@ -7,12 +7,13 @@ initSlider = () ->
     argMaxHeight : (() ->
       return $(".diagram-area").height() - sliderHeight
     ),
-    initialValue :  sliderHeight
+    initialValue :  initialTargetValue + sliderHeight
   })
   $(".currentAbility").vSlider({
     argMaxHeight : ((self) ->
       return self.siblings(".targetAbility").height() - sliderHeight
-    )
+    ),
+    initialValue :  initialCurrentValue
   })
 
 # Helper function for calculating the values of the sliders

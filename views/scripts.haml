@@ -1,7 +1,9 @@
 //Javascript includes
 %script{:type => "text/javascript", :src  => "/external/js/jquery-1.9.1.min.js"}
 
--# Loading important globalvariables
+-# When load abilities of the loaded key are stored in a global js variable
+-# When this variable is defined it triggers the load of the ability sliders during
+-# js initiaton of the abilityHandler
 -if @load
   :javascript
     $(document).ready(function(){

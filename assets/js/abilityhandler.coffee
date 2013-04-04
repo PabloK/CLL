@@ -16,7 +16,34 @@ class AbilityHandler
     setTimeout((-> abilityHandler.removeTimerOn = false),1000)
     return !returnValue
 
-  # TODO handle colors and id's aswell
+  loadAbility: (ability) ->
+    console.log(ability)
+    @usedAbilitys.push ability.name
+    new_diagram = "
+    <div class=\"combination-diagram\">
+      <div class=\"diagram currentAbility cornflower\"></div>
+      <div class=\"diagram targetAbility grey-6\"></div>
+      <div class=\"remove-button label label-important\">
+        <div class=\"icon-remove icon-white\"></div>
+      </div>
+      <label class=\"diagram-label\">" + ability.name + "</label>
+    </div>
+    "
+    $(".diagram-area").append(new_diagram)
+    totalHeight = $(".diagram-area").height() - 30
+    targetHeight = ability.slider.target_level/100 * totalHeight
+    currentHeight = ability.slider.current_level/100 * targetHeight
+
+    # Initiate a new slider 
+    initSlider(currentHeight,targetHeight)
+    abilityHandler = this
+    
+    $(".diagram-area").find(".remove-button").last().bind('vclick',()->
+      if abilityHandler.removeTimer()
+        abilityHandler.removeAbility(ability.name)
+        $(this).parent().remove()
+    )
+
   addAbility: (ability) ->
     @usedAbilitys.push ability
     new_diagram = "
@@ -29,7 +56,7 @@ class AbilityHandler
       <label class=\"diagram-label\">" + ability + "</label>
     </div>
     "
-    appended_diagram = $(".diagram-area").append(new_diagram)
+    $(".diagram-area").append(new_diagram)
    
     # Initiate a new slider 
     initSlider()
@@ -77,11 +104,11 @@ $(document).ready ->
   
   autoAbilityHandler = new AbilityHandler
   
+  # Load the ability sliders if the global var loadedAbilities is defined
   if typeof window.loadedAbilities != 'undefined'
     for ability in window.loadedAbilities
       unless autoAbilityHandler.isAbilityUsed(ability.name)
-        autoAbilityHandler.addAbility(ability.name)
-    #set the heights
+        autoAbilityHandler.loadAbility(ability)
     
 
   $("#add_track").click((event)->
