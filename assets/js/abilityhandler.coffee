@@ -76,6 +76,13 @@ class AbilityHandler
 $(document).ready ->
   
   autoAbilityHandler = new AbilityHandler
+  
+  if typeof window.loadedAbilities != 'undefined'
+    for ability in window.loadedAbilities
+      unless autoAbilityHandler.isAbilityUsed(ability.name)
+        autoAbilityHandler.addAbility(ability.name)
+    #set the heights
+    
 
   $("#add_track").click((event)->
     track = $("#track").val()

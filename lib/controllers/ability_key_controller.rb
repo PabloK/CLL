@@ -15,7 +15,12 @@ class AbilityKeyController < ProtectedController
     @keys = current_user.ability_keys
     @key = @keys.find {|item| item.id == current_key_id}
     
-    unless @key
+    if @key
+      @load = true
+      @JSONabilities = @key.ability_sliders
+      @JSONabilities = @JSONabilities.map {|slider| {:name => slider.ability.name, :slider => slider}}
+      @JSONabilities = @JSONabilities.to_json
+    else
       modal({:heading => "Fel" ,
               :body => "Nyckeln kunde inte hittas i databasen."})
     end

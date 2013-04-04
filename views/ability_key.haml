@@ -14,7 +14,10 @@
           .help{:'data-content' => "Namnet du vill ge din nyckel.",:'data-title' => "Nyckel namn", :'data-placement' => "right"} 
             .icon-info-sign
           %label{:for => "name" } Nyckel namn:
-          %input#name{:type => "text", :name => "name", :tabindex => 1}
+          -if @key
+            %input#name{:type => "text", :name => "name", :tabindex => 1, :value => @key.name}
+          -else
+            %input#name{:type => "text", :name => "name", :tabindex => 1}
         %div
           .help{:'data-content' => "Här väljer du de konsult spår du vill tillhöra. Sedan klickar du på pluset för att lägga till bas förmågor för det konsultspåret.",:'data-title' => "Välj konsultspår", :'data-placement' => "right"} 
             .icon-info-sign

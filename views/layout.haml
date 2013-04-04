@@ -18,8 +18,9 @@
                   -@submenu.each do |item|
                     %li{:class => item[:url] == request.path ? "active" : ""}
                       %a{:href => item[:url]}=item[:text]
-                %li
-                  %a{:href => "/logout"} Logga ut
+                -if session[:user]
+                  %li
+                    %a{:href => "/logout"} Logga ut
 
       .row-fluid#main-content
         .span12-fluid.padding

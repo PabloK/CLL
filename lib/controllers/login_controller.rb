@@ -12,7 +12,6 @@ class LoginController < Sinatra::Base
       if user.new_lookup!
         session[:user]=user.id
         session[:lookup]=user.lookup
-        modal({:heading => "Inloggningen lycakdes", :body => "Du är nu inloggad"})
         redirect '/'
       end
     end

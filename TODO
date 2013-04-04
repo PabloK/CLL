@@ -1,7 +1,15 @@
 # Save function for the ability key
   # Save function
     # Move the indexpage and change index to listing my keys
+    # When saving a key of the same name what should happen?
   # Load function
+# JS validation of key before sending
+# Create career proposals
+  # Create career_steps
+  "a carrer step is mapped to an area or an ability and is then elidgeable for people who are interested in gaining experiance in this area. carreer steps
+  also belong to a carrer_step_type for instance LCN, Course, and more this makes it possible to treat the steps differently when listing them"
+# JS animation illustrating that the ability was added to the diagram when in tab mode
+# Add examples of how a key could look in popover 
 # Increased testing 
-# Create empty text for all lists
 # Make ability score only go up after the key was saved:unique => true 
+# Create a text showing that a list is empy if nothing is selected
