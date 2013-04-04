@@ -43,13 +43,15 @@ class MainController < ProtectedController
         current_user = User.get(session[:user])
         if current_user
           
+          new_ability_key = nil
           current_user.ability_keys.each do |existing_ability_key| 
             if existing_ability_key.name == params[:name]
-              AbilityKeyUser.get(current_user.id,existing_ability_key.id).destroy!
-              existing_ability_key.destroy!
+              new_ability_key = existing_ability_key
+              AbilityKeyAbilitySlider.all(:ability_key_id => existing_ability_key.id).destroy!
             end
           end
-          new_ability_key = AbilityKey.new
+
+          new_ability_key = AbilityKey.new unless new_ability_key
           new_ability_key.name = params[:name]
           new_ability_key.edited = DateTime.now
 

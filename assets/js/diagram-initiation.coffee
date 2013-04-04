@@ -1,5 +1,5 @@
 sliderHeight = 15
-initSlider = (initialCurrentValue = 0,initialTargetValue = sliderHeight) ->
+initSlider = (initialCurrentValue = 0,initialTargetValue = 0) ->
   $(".targetAbility").vSlider({
     argMinHeight : ((self) ->
       return self.siblings(".currentAbility").height() + sliderHeight

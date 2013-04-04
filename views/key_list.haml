@@ -4,5 +4,6 @@
   %ul.item-list
     -@keys.each do |key|
       %li{:class => cycle('odd','even')}
-        %a{:href => "/ability_key/key/#{key.id}"}=key.name
+        %span
+          %a{:href => "/ability_key/key/#{key.id}"}=key.name
   %button.btn{:type => "link", :onClick => "window.location.href='/ability_key/key'", :tabindex => 1} Lägg till nyckel
