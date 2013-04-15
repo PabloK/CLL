@@ -5,13 +5,15 @@ require 'bcrypt'
 class User
   include DataMapper::Resource  
   include BCrypt
-  property :id,             Serial
-  property :firstname,      String
-  property :lastname,       String
-  property :email,          String,   :required => true, :unique => true
-  property :password_hash,  String,   :required => true, :lazy => true
-  property :lookup,         String,   :lazy => false
-  property :recover_key,    String,   :lazy => false
+  property :id,                Serial
+  property :firstname,         String
+  property :lastname,          String
+  property :email,             String,   :required => true, :unique => true
+  property :password_hash,     String,   :required => true, :lazy => true
+  property :lookup,            String,   :lazy => false
+  property :recover_key,       String,   :lazy => false
+  property :buissnes_level,    Integer, :required => true, :default => 1
+  property :experiance_level,  Integer, :required => true, :default => 1
   
   has n, :ability_keys, :through => Resource, :constraint => :destroy
   
